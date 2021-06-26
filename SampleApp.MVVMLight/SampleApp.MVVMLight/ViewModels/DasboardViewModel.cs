@@ -4,7 +4,11 @@ using System.Text;
 
 namespace SampleApp.MVVMLight.ViewModels
 {
-    public class DasboardViewModel
+    public class DasboardViewModel : BaseViewModel
     {
+        public DasboardViewModel()
+        {
+
+        }
     }
 }
