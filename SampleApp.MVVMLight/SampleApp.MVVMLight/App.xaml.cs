@@ -1,7 +1,5 @@
 ﻿using SampleApp.MVVMLight.Helpers;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SampleApp.MVVMLight
 {
