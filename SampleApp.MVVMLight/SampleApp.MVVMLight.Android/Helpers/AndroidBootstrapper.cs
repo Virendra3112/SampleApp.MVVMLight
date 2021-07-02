@@ -1,17 +1,32 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Autofac;
+using SampleApp.MVVMLight.Helpers;
 
 namespace SampleApp.MVVMLight.Droid.Helpers
 {
-    class AndroidBootstrapper
+    public class AndroidBootstrapper : AppBootStrapper
     {
+        public static void Initialize()
+        {
+            var builder = new ContainerBuilder();
+            AppBootStrapper.Init(builder);
+
+            RegisterHelpers(builder);
+            RegisterServices(builder);
+
+            Container = builder.Build();
+#pragma warning disable S1854 // Dead stores should be removed
+            builder = null;
+#pragma warning restore S1854 // Dead stores should be removed
+        }
+
+        private static void RegisterHelpers(ContainerBuilder builder)
+        {
+            //RegisterHelpers
+        }
+
+        private static void RegisterServices(ContainerBuilder builder)
+        {
+            //register services
+        }
     }
 }
