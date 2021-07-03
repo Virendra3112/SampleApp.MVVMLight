@@ -1,4 +1,7 @@
-﻿using SampleApp.MVVMLight.Helpers;
+﻿using Autofac.Extras.CommonServiceLocator;
+using CommonServiceLocator;
+using SampleApp.MVVMLight.Helpers;
+using System;
 using Xamarin.Forms;
 
 namespace SampleApp.MVVMLight
@@ -9,9 +12,20 @@ namespace SampleApp.MVVMLight
 
         public App()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
 
-            MainPage = new MainPage();
+                if (!ServiceLocator.IsLocationProviderSet)
+                    ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(Locator.Container));
+
+
+                MainPage = new MainPage();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public static ViewModelLocator ViewModelLocator
