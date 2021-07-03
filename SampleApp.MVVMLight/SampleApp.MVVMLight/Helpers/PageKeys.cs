@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SampleApp.MVVMLight.Views;
 
 namespace SampleApp.MVVMLight.Helpers
 {
-    class PageKeys
+    public class PageKeys
     {
+        public const string DashboardPageURI = nameof(DasboardView);
+
     }
 }
