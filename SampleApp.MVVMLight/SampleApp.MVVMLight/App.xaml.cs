@@ -1,6 +1,7 @@
 ﻿using Autofac.Extras.CommonServiceLocator;
 using CommonServiceLocator;
 using SampleApp.MVVMLight.Helpers;
+using SampleApp.MVVMLight.Views;
 using System;
 using Xamarin.Forms;
 
@@ -20,7 +21,7 @@ namespace SampleApp.MVVMLight
                     ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(Locator.Container));
 
 
-                MainPage = new MainPage();
+                MainPage = new NavigationPage( new DasboardView());
             }
             catch(Exception ex)
             {
