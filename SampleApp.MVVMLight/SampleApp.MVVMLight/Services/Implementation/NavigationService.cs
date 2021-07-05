@@ -1,7 +1,5 @@
 ﻿using SampleApp.MVVMLight.Services.Interface;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SampleApp.MVVMLight.Services.Implementation
 {
