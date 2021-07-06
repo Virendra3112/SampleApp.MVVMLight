@@ -1,10 +1,18 @@
 ﻿using SampleApp.MVVMLight.Services.Interface;
 using System;
+using System.Collections.Generic;
 
 namespace SampleApp.MVVMLight.Services.Implementation
 {
     public class NavigationService : INavigationService
     {
+        private readonly Dictionary<string, Type> _pagesByKey;
+
+        public NavigationService()
+        {
+            _pagesByKey = new Dictionary<string, Type>();
+        }
+
         public string CurrentPageKey => throw new NotImplementedException();
 
         public void GoBack()
