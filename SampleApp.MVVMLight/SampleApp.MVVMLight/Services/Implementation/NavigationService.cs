@@ -13,6 +13,22 @@ namespace SampleApp.MVVMLight.Services.Implementation
             _pagesByKey = new Dictionary<string, Type>();
         }
 
+
+        public void Configure(string pageKey, Type pageType)
+        {
+            lock (_pagesByKey)
+            {
+                if (_pagesByKey.ContainsKey(pageKey))
+                {
+                    _pagesByKey[pageKey] = pageType;
+                }
+                else
+                {
+                    _pagesByKey.Add(pageKey, pageType);
+                }
+            }
+        }
+
         public string CurrentPageKey => throw new NotImplementedException();
 
         public void GoBack()
