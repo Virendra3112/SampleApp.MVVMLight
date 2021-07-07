@@ -4,10 +4,49 @@
              x:Name="self" Title="Dashboard Page"
              x:Class="SampleApp.MVVMLight.Views.DasboardView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid RowSpacing="0" BackgroundColor="Transparent" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="End">
+
+                <!--<Label Text="{x:Static resource:AppResource.ThemeText}" TextColor="{DynamicResource TextPrimaryColor}" FontSize="Small" Padding="5"/>
+                <Switch HorizontalOptions="Start" VerticalOptions="Start" IsToggled="{Binding SetDarkMode, Source={x:Reference self}}"/>-->
+
+            </StackLayout>
+
+
+            <ScrollView Grid.Row="2">
+
+                <FlexLayout BindableLayout.ItemsSource="{Binding CategoryList}"
+                    Wrap="Wrap" x:Name="Taches1"
+                    Direction="Row"
+                    JustifyContent="Center"
+                    AlignItems="Center" BackgroundColor="Transparent"
+                    AlignContent="Start">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid FlexLayout.Basis="{OnIdiom Phone='33%'}">
+                                <Frame Margin="10" Padding="0,20" CornerRadius="5" HeightRequest="80" WidthRequest="80">
+                                    <FlexLayout Direction="Column" AlignItems="Center">
+                                        <Image Source="{Binding Icon}" WidthRequest="50" HeightRequest="50"/>
+                                        <Label Text="{Binding PageName}" FontSize="Small"  
+                                             HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"  LineBreakMode="CharacterWrap" MaxLines="2"/>
+                                    </FlexLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.MenuItemCommand, Source={x:Reference self}}"
+                            CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </ScrollView>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
