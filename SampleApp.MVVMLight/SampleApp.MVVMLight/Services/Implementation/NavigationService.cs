@@ -1,6 +1,7 @@
 ﻿using SampleApp.MVVMLight.Services.Interface;
 using System;
 using System.Collections.Generic;
+using Xamarin.Forms;
 
 namespace SampleApp.MVVMLight.Services.Implementation
 {
@@ -11,6 +12,11 @@ namespace SampleApp.MVVMLight.Services.Implementation
         public NavigationService()
         {
             _pagesByKey = new Dictionary<string, Type>();
+        }
+
+        public MainPage MainPage//ToDo: Add Master Details page
+        {
+            get { return (MainPage)Application.Current.MainPage; }
         }
 
 
@@ -31,9 +37,9 @@ namespace SampleApp.MVVMLight.Services.Implementation
 
         public string CurrentPageKey => throw new NotImplementedException();
 
-        public void GoBack()
+        public async void GoBack()
         {
-            throw new NotImplementedException();
+            await MainPage.Navigation.PopAsync();
         }
 
         public void HideDrawerMenu()
@@ -43,7 +49,7 @@ namespace SampleApp.MVVMLight.Services.Implementation
 
         public void NavigateTo(string pageKey)
         {
-            throw new NotImplementedException();
+
         }
 
         public void NavigateTo(string pageKey, object parameter)
@@ -51,9 +57,9 @@ namespace SampleApp.MVVMLight.Services.Implementation
             throw new NotImplementedException();
         }
 
-        public void PopToRoot()
+        public async void PopToRoot()
         {
-            throw new NotImplementedException();
+            await MainPage.Navigation.PopToRootAsync();
         }
     }
 }
