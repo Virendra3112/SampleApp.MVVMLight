@@ -28,12 +28,12 @@ namespace SampleApp.MVVMLight.Helpers
         private static void CreateNavigationService(NavigationService navigationService)
         {
             navigationService.Configure(PageKeys.DashboardPageURI, typeof(DasboardView));
+            navigationService.Configure(PageKeys.NotificationViewURI, typeof(NotificationView));
         }
 
         private static void RegisterViewModel(ContainerBuilder builder)
         {
             builder.RegisterAssemblyTypes(typeof(BaseViewModel).Assembly).InstancePerLifetimeScope().AsImplementedInterfaces().AsSelf().AssignableTo<BaseViewModel>();
         }
-
     }
 }
