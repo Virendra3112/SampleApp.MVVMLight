@@ -1,13 +1,32 @@
-﻿using Foundation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UIKit;
+﻿using Autofac;
+using SampleApp.MVVMLight.Helpers;
 
 namespace SampleApp.MVVMLight.iOS.Helpers
 {
-    class IosBootstrapper
+    public class IosBootstrapper : AppBootStrapper
     {
+        public static void Initialize()
+        {
+            var builder = new ContainerBuilder();
+            AppBootStrapper.Init(builder);
+
+            RegisterHelpers(builder);
+            RegisterServices(builder);
+
+            Container = builder.Build();
+#pragma warning disable S1854 // Dead stores should be removed
+            builder = null;
+#pragma warning restore S1854 // Dead stores should be removed
+        }
+
+        private static void RegisterHelpers(ContainerBuilder builder)
+        {
+            // Register platform helpers here.
+        }
+
+        private static void RegisterServices(ContainerBuilder builder)
+        {
+            // Register platform services here.
+        }
     }
 }
