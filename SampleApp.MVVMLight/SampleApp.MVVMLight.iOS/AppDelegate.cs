@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿
 using Foundation;
+using SampleApp.MVVMLight.iOS.Helpers;
 using UIKit;
 
 namespace SampleApp.MVVMLight.iOS
@@ -24,6 +22,8 @@ namespace SampleApp.MVVMLight.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            IosBootstrapper.Initialize();
 
             return base.FinishedLaunching(app, options);
         }
