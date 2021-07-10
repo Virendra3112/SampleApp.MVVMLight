@@ -31,7 +31,24 @@ namespace SampleApp.MVVMLight.ViewModels
 
         private void MenuSelected(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (obj != null)
+                {
+                    var model = obj as MenuModel;
+                    switch (model.PageName)
+                    {
+                        case "Notification View":
+
+                            break;
+                    }
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+
+            }
         }
     }
 }
