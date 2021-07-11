@@ -18,11 +18,11 @@ namespace SampleApp.MVVMLight.Helpers
         /// <summary>
         /// Registers the services.
         /// </summary>
-        private static void RegisterServices(ContainerBuilder builder)
+        private static void RegisterServices(ContainerBuilder containerBuilder)
         {
             var navigationService = new NavigationService();
             CreateNavigationService(navigationService);
-            builder.Register<INavigationService>(c => (INavigationService)navigationService).SingleInstance();
+            containerBuilder.Register<INavigationService>(c => (INavigationService)navigationService).SingleInstance();
         }
 
         private static void CreateNavigationService(NavigationService navigationService)
