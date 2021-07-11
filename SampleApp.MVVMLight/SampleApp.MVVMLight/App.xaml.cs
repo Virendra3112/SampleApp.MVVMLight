@@ -21,19 +21,13 @@ namespace SampleApp.MVVMLight
                     ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(Locator.Container));
 
 
-                MainPage = new NavigationPage( new DasboardView());
+                MainPage = new NavigationPage(new DasboardView());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
         }
-
-        public static ViewModelLocator ViewModelLocator
-        {
-            get { return _viewModelLocator ?? (_viewModelLocator = new ViewModelLocator()); }
-        }
-
         protected override void OnStart()
         {
         }
