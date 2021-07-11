@@ -1,65 +1,96 @@
 ﻿using SampleApp.MVVMLight.Services.Interface;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace SampleApp.MVVMLight.Services.Implementation
 {
     public class NavigationService : INavigationService
     {
-        private readonly Dictionary<string, Type> _pagesByKey;
+        private readonly Dictionary<string, Type> _pageKeyDictionary;
 
         public NavigationService()
         {
-            _pagesByKey = new Dictionary<string, Type>();
+            _pageKeyDictionary = new Dictionary<string, Type>();
         }
 
-        public MainPage MainPage//ToDo: Add Master Details page
+        public MasterDetailPage MasterDetailPage
         {
-            get { return (MainPage)Application.Current.MainPage; }
+            get { return (MasterDetailPage)Application.Current.MainPage; }
         }
-
 
         public void Configure(string pageKey, Type pageType)
         {
-            lock (_pagesByKey)
+            lock (_pageKeyDictionary)
             {
-                if (_pagesByKey.ContainsKey(pageKey))
+                if (_pageKeyDictionary.ContainsKey(pageKey))
                 {
-                    _pagesByKey[pageKey] = pageType;
+                    _pageKeyDictionary[pageKey] = pageType;
                 }
                 else
                 {
-                    _pagesByKey.Add(pageKey, pageType);
+                    _pageKeyDictionary.Add(pageKey, pageType);
                 }
             }
         }
 
-        public string CurrentPageKey => throw new NotImplementedException();
-
+        #region INavigationService implementation
+#pragma warning disable S3168 // "async" methods should not return "void"
         public async void GoBack()
+#pragma warning disable S3168 // "async" methods should not return "void"
         {
-            await MainPage.Navigation.PopAsync();
-        }
-
-        public void HideDrawerMenu()
-        {
-            throw new NotImplementedException();
+            await MasterDetailPage.Detail.Navigation.PopAsync();
         }
 
         public void NavigateTo(string pageKey)
         {
-
+            NavigateTo(pageKey, null);
         }
 
-        public void NavigateTo(string pageKey, object parameter)
+#pragma warning disable S3168 // "async" methods should not return "void"
+        public async void NavigateTo(string pageKey, object parameter)
+#pragma warning disable S3168 // "async" methods should not return "void"
         {
-            throw new NotImplementedException();
+            try
+            {
+                object[] parameters = null;
+                if (parameter != null)
+                {
+                    parameters = new[] { parameter };
+                }
+                if (_pageKeyDictionary != null)
+                {
+                    var displayPage = (Page)Activator.CreateInstance(_pageKeyDictionary[pageKey], parameters);
+                    var isModal = displayPage is IModalPage;
+                    NavigationPage.SetHasBackButton(displayPage, isModal);
+                    CurrentPageKey = pageKey;
+                    await MasterDetailPage.Detail.Navigation.PushAsync(displayPage);
+                    MasterDetailPage.IsPresented = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                Debugger.Break();
+            }
         }
 
+#pragma warning disable S3168 // "async" methods should not return "void"
         public async void PopToRoot()
+#pragma warning disable S3168 // "async" methods should not return "void"
         {
-            await MainPage.Navigation.PopToRootAsync();
+            await MasterDetailPage.Detail.Navigation.PopToRootAsync();
+            MasterDetailPage.IsPresented = false;
         }
+
+        public void HideDrawerMenu()
+        {
+            MasterDetailPage.IsPresented = false;
+        }
+
+        public string CurrentPageKey { get; set; }
+
+        #endregion
     }
 }
