@@ -1,13 +1,17 @@
-﻿using System.ComponentModel;
+﻿using CommonServiceLocator;
+using SampleApp.MVVMLight.Services.Interface;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace SampleApp.MVVMLight.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        protected readonly INavigationService NavigationService;
+
         public BaseViewModel()
         {
-
+            NavigationService = ServiceLocator.Current.GetInstance<INavigationService>();
         }
 
 
