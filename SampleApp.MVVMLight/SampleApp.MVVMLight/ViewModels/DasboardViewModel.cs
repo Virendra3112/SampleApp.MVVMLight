@@ -1,5 +1,5 @@
-﻿using SampleApp.MVVMLight.Models;
-using System;
+﻿using SampleApp.MVVMLight.Helpers;
+using SampleApp.MVVMLight.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -39,7 +39,7 @@ namespace SampleApp.MVVMLight.ViewModels
                     switch (model.PageName)
                     {
                         case "Notification View":
-
+                            NavigationService.NavigateTo(PageKeys.NotificationViewURI);
                             break;
                     }
                 }
