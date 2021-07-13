@@ -24,6 +24,7 @@ namespace SampleApp.MVVMLight.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            NotificationViewModel.GetData();
         }
     }
 }
