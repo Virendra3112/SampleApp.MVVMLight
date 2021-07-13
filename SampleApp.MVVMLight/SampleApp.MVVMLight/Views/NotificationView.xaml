@@ -3,10 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleApp.MVVMLight.Views.NotificationView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+
+            <StackLayout BindableLayout.ItemsSource="{Binding DetailsList}"
+             Orientation="Horizontal"
+             >
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid RowSpacing="0" ColumnSpacing="0"
+                                  Padding="0" Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="10"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+
+                                <BoxView Grid.RowSpan="2" Grid.Column="0" BackgroundColor="Red"
+                                         Margin="0" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" />
+
+
+
+
+                            </Grid>
+                            
+                            
+                        </Frame>
+                        
+                        
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+
+
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
