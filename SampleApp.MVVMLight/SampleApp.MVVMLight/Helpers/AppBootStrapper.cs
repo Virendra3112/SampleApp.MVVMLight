@@ -29,6 +29,7 @@ namespace SampleApp.MVVMLight.Helpers
         {
             navigationService.Configure(PageKeys.DashboardPageURI, typeof(DasboardView));
             navigationService.Configure(PageKeys.NotificationViewURI, typeof(NotificationView));
+            navigationService.Configure(PageKeys.NavigationDrawerPageURI, typeof(NavigationDrawerPage));
         }
 
         private static void RegisterViewModel(ContainerBuilder builder)
