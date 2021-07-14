@@ -6,6 +6,6 @@ namespace SampleApp.MVVMLight.Helpers
     {
         public const string DashboardPageURI = nameof(DasboardView);
         public const string NotificationViewURI = nameof(NotificationView);
-
+        public const string NavigationDrawerPageURI = nameof(NavigationDrawerPage);
     }
 }
