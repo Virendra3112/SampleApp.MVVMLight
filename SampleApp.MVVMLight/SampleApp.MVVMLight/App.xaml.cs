@@ -9,8 +9,9 @@ namespace SampleApp.MVVMLight
 {
     public partial class App : Application
     {
-        private static ViewModelLocator _viewModelLocator;
 
+        public static MasterDetailPage MasterDetail { get; set; }
+        public static NavigationPage Navigation { get; set; }
         public App()
         {
             try
@@ -21,7 +22,19 @@ namespace SampleApp.MVVMLight
                     ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(Locator.Container));
 
 
-                MainPage = new NavigationPage(new DasboardView());
+                //MainPage = new NavigationPage(new DasboardView());
+
+                MasterDetail = new MasterDetailPage();
+                MasterDetail.Master = new NavigationDrawerPage() { Title = " " };
+                Navigation = new NavigationPage(new DasboardView())
+                {
+                    BarBackgroundColor = Color.FromHex("#2b2841"),
+                    BarTextColor = Color.White
+                };
+                MasterDetail.Detail = Navigation;
+                MasterDetail.MasterBehavior = MasterBehavior.Popover;
+                MasterDetail.IsPresented = false;
+                MainPage = MasterDetail;
             }
             catch (Exception ex)
             {
