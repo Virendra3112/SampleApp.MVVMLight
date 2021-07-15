@@ -20,16 +20,18 @@ namespace SampleApp.MVVMLight.Helpers
         /// </summary>
         private static void RegisterServices(ContainerBuilder containerBuilder)
         {
-            var navigationService = new NavigationService();
-            CreateNavigationService(navigationService);
-            containerBuilder.Register<INavigationService>(c => (INavigationService)navigationService).SingleInstance();
+            var nav = new NavigationService();
+            CreateNavigationService(nav);
+            containerBuilder.Register<SampleApp.MVVMLight.Services.Interface.INavigationService>(c => nav).SingleInstance();
         }
 
-        private static void CreateNavigationService(NavigationService navigationService)
+        private static NavigationService CreateNavigationService(NavigationService navigationService)
         {
+            navigationService.Configure(PageKeys.DrawerPageURI, typeof(NavigationDrawerPage));
             navigationService.Configure(PageKeys.DashboardPageURI, typeof(DasboardView));
             navigationService.Configure(PageKeys.NotificationViewURI, typeof(NotificationView));
-            navigationService.Configure(PageKeys.NavigationDrawerPageURI, typeof(NavigationDrawerPage));
+
+            return navigationService;
         }
 
         private static void RegisterViewModel(ContainerBuilder builder)
