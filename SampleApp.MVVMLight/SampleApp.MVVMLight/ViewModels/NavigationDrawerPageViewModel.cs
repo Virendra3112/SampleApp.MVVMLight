@@ -6,5 +6,9 @@ namespace SampleApp.MVVMLight.ViewModels
 {
     public class NavigationDrawerPageViewModel : BaseViewModel
     {
+        public NavigationDrawerPageViewModel()
+        {
+
+        }
     }
 }
