@@ -1,6 +1,5 @@
 ﻿using CommonServiceLocator;
 using SampleApp.MVVMLight.ViewModels;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
