@@ -20,5 +20,11 @@ namespace SampleApp.MVVMLight.Views
             InitializeComponent();
             BindingContext = NavigationDrawerPageViewModel;
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            NavigationDrawerPageViewModel.GetData();
+        }
     }
 }

@@ -4,10 +4,45 @@
              Title="_"
              x:Class="SampleApp.MVVMLight.Views.NavigationDrawerPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome user"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <FlexLayout Grid.Row="0" Direction="Column" JustifyContent="Center" 
+            BackgroundColor="Black" Padding="30,30,30,0">
+                <Image WidthRequest="80" HeightRequest="80" BackgroundColor="Transparent"
+			     Source="icon"/>
+                <Label Text="{Binding UserName}" TextColor="White" FontSize="Large"/>
+                <Label Text="{Binding UserEmail}" TextColor="White" LineBreakMode="CharacterWrap"/>
+
+            </FlexLayout>
+            <ListView Grid.Row="1" ItemsSource="{Binding MenuList}" VerticalOptions="FillAndExpand"
+            CachingStrategy="RecycleElement" SeparatorVisibility="None"
+            HasUnevenRows="True" SelectedItem="{Binding SelectedMenu}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <FlexLayout Direction="Row" Padding="30,10" AlignItems="Center">
+                                <Image Source="{Binding Icon}" HeightRequest="25" WidthRequest="25"/>
+                                <Label Text="{Binding Title}" Padding="5"/>
+                            </FlexLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <FlexLayout Grid.Row="2" Direction="Row" Padding="30,10" AlignItems="Center">
+                <Image Source="icon"
+                HeightRequest="25" WidthRequest="25"/>
+                <Label Text="Logout" Padding="5"/>
+                <FlexLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding LogoutCommand}" />
+                </FlexLayout.GestureRecognizers>
+            </FlexLayout>
+            <Label Text="AppVersion 1.0" FontSize="Small" Grid.Row="3"  Padding="25"/>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
