@@ -1,7 +1,7 @@
 ﻿using SampleApp.MVVMLight.Models;
 using System;
 using System.Collections.ObjectModel;
-    
+
 namespace SampleApp.MVVMLight.ViewModels
 {
     public class NavigationDrawerPageViewModel : BaseViewModel
@@ -32,18 +32,15 @@ namespace SampleApp.MVVMLight.ViewModels
             }
             set
             {
-
                 _selectedMenu = value;
                 OnPropertyChanged();
 
+                if (_selectedMenu != null)
+                    NavigateToPage(_selectedMenu);
             }
         }
-
-
         public NavigationDrawerPageViewModel()
         {
-            MenuList = new ObservableCollection<MenuModel>();
-
         }
 
         public void GetData()
@@ -72,12 +69,23 @@ namespace SampleApp.MVVMLight.ViewModels
                     Title = "SampleItem2"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        private void NavigateToPage(MenuModel selectedMenu)
+        {
+            try
             {
 
-                throw;
-            }
 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }
