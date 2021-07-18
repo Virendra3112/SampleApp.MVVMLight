@@ -15,8 +15,8 @@
             BackgroundColor="Black" Padding="30,30,30,0">
                 <Image WidthRequest="80" HeightRequest="80" BackgroundColor="Transparent"
 			     Source="icon"/>
-                <Label Text="{Binding UserName}" TextColor="White" FontSize="Large"/>
-                <Label Text="{Binding UserEmail}" TextColor="White" LineBreakMode="CharacterWrap"/>
+                <Label Text="Hello, Virendra" TextColor="White" FontSize="Large"/>
+                <Label Text="virendra@test.com" TextColor="White" LineBreakMode="CharacterWrap"/>
 
             </FlexLayout>
             <ListView Grid.Row="1" ItemsSource="{Binding MenuList}" VerticalOptions="FillAndExpand"
@@ -37,9 +37,9 @@
                 <Image Source="icon"
                 HeightRequest="25" WidthRequest="25"/>
                 <Label Text="Logout" Padding="5"/>
-                <FlexLayout.GestureRecognizers>
+                <!--<FlexLayout.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding LogoutCommand}" />
-                </FlexLayout.GestureRecognizers>
+                </FlexLayout.GestureRecognizers>-->
             </FlexLayout>
             <Label Text="AppVersion 1.0" FontSize="Small" Grid.Row="3"  Padding="25"/>
 
