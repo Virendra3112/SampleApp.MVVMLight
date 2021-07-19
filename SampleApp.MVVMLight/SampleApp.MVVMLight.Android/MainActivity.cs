@@ -3,10 +3,11 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using SampleApp.MVVMLight.Droid.Helpers;
+using Acr.UserDialogs;
 
 namespace SampleApp.MVVMLight.Droid
 {
-    [Activity(Label = "SampleApp.MVVMLight", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "SampleApp.MVVMLight", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -17,6 +18,8 @@ namespace SampleApp.MVVMLight.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             AndroidBootstrapper.Initialize();
+
+            UserDialogs.Init(this);
 
             LoadApplication(new App());
         }
