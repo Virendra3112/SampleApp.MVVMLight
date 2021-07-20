@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using CommonServiceLocator;
+using Plugin.Connectivity;
 using SampleApp.MVVMLight.Services.Interface;
 using System;
 using System.ComponentModel;
@@ -12,10 +13,10 @@ namespace SampleApp.MVVMLight.ViewModels
         protected readonly INavigationService NavigationService;
 
         #region Properties
-        //public bool IsConnected
-        //{
-        //    get { return CrossConnectivity.Current.IsConnected; }
-        //}
+        public bool IsConnected
+        {
+            get { return CrossConnectivity.Current.IsConnected; }
+        }
 
         bool isBusy;
 
@@ -50,6 +51,7 @@ namespace SampleApp.MVVMLight.ViewModels
         public BaseViewModel()
         {
             NavigationService = ServiceLocator.Current.GetInstance<INavigationService>();
+            CheckConnectivity();
         }
 
 
@@ -68,6 +70,34 @@ namespace SampleApp.MVVMLight.ViewModels
             {
             }
         }
+
+        public void CheckConnectivity()
+        {
+            try
+            {
+                CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
+                {
+                    IsNetworkAvailable = args.IsConnected;
+
+                    ToastConfig.DefaultPosition = ToastPosition.Top;
+
+                    if (IsNetworkAvailable)
+                    {
+                        UserDialogs.Instance.Toast("Internet connected");
+
+                    }
+
+                    else
+                        UserDialogs.Instance.Toast("Internet Lost");
+
+                };
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+        }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
