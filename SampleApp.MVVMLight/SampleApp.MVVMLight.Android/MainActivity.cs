@@ -4,6 +4,8 @@ using Android.Runtime;
 using Android.OS;
 using SampleApp.MVVMLight.Droid.Helpers;
 using Acr.UserDialogs;
+using Com.OneSignal;
+using Com.OneSignal.Abstractions;
 
 namespace SampleApp.MVVMLight.Droid
 {
@@ -13,6 +15,20 @@ namespace SampleApp.MVVMLight.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            // Remove this method to stop OneSignal Debugging  
+            OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
+
+            OneSignal.Current.StartInit("YOUR_ONESIGNAL_APP_ID") //todo add app id here
+             .InFocusDisplaying(OSInFocusDisplayOption.Notification)
+             .EndInit();
+
+            string playerId = "";
+
+            OneSignal.Current.IdsAvailable(new Com.OneSignal.Abstractions.IdsAvailableCallback((playerID, pushToken) =>
+            {
+                playerId = playerID;
+            }));
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
