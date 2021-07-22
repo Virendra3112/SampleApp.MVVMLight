@@ -79,7 +79,7 @@ namespace SampleApp.MVVMLight.ViewModels
         {
             try
             {
-
+                //ToDo: Add page navigation here
 
             }
             catch (Exception ex)
