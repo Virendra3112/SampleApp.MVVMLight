@@ -14,12 +14,14 @@
                     <Label Text="Fresh MVVM Rg.Plugin.Popup"  
                            VerticalOptions="CenterAndExpand"   
                            HorizontalOptions="CenterAndExpand" />
-                    <!--<Button Command="{Binding ClosePopupCommand}"  
-                    Text="Close Popup"/>-->
                 </StackLayout>
             </Frame>
             <Image Source="icon" AbsoluteLayout.LayoutBounds="0.9,0,1,1" AbsoluteLayout.LayoutFlags="PositionProportional"
                    >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+
+                </Image.GestureRecognizers>
             </Image>
         </AbsoluteLayout>
     </popup:PopupPage.Content>
