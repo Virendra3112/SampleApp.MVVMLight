@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms.Xaml;
 
 namespace SampleApp.MVVMLight.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomPopupView : ContentView
+    public partial class CustomPopupView : PopupPage
     {
         public CustomPopupView()
         {

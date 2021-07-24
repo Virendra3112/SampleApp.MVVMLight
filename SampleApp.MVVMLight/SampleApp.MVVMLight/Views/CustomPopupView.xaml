@@ -1,10 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleApp.MVVMLight.Views.CustomPopupView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
-</ContentView>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"  
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+                 xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  
+                 CloseWhenBackgroundIsClicked="True"  
+                  x:Class="SampleApp.MVVMLight.Views.CustomPopupView">
+    <popup:PopupPage.Content>
+        <AbsoluteLayout>
+            <Frame BackgroundColor="White" HasShadow="False" CornerRadius="12" Padding="0" Margin="0">
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="10"  
+                     BackgroundColor="White"  
+                     HorizontalOptions="Center"  
+                     VerticalOptions="Center">
+                    <Label Text="Fresh MVVM Rg.Plugin.Popup"  
+                           VerticalOptions="CenterAndExpand"   
+                           HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+            </Frame>
+            <Image Source="icon" AbsoluteLayout.LayoutBounds="0.9,0,1,1" AbsoluteLayout.LayoutFlags="PositionProportional"
+                   >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+
+                </Image.GestureRecognizers>
+            </Image>
+        </AbsoluteLayout>
+    </popup:PopupPage.Content>
+</popup:PopupPage>
