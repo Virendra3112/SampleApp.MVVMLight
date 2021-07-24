@@ -10,6 +10,7 @@ namespace SampleApp.MVVMLight.Helpers
             SimpleIoc.Default.Register<DasboardViewModel>();
             SimpleIoc.Default.Register<NavigationDrawerPageViewModel>();
             SimpleIoc.Default.Register<NotificationViewModel>();
+            SimpleIoc.Default.Register<CustomPopupViewModel>();
         }
 
         public DasboardViewModel DasboardViewModel
@@ -45,6 +46,18 @@ namespace SampleApp.MVVMLight.Helpers
                     SimpleIoc.Default.Register<NavigationDrawerPageViewModel>();
                 }
                 return SimpleIoc.Default.GetInstance<NavigationDrawerPageViewModel>();
+            }
+        }
+
+        public CustomPopupViewModel CustomPopupViewModel
+        {
+            get
+            {
+                if (!SimpleIoc.Default.IsRegistered<CustomPopupViewModel>())
+                {
+                    SimpleIoc.Default.Register<CustomPopupViewModel>();
+                }
+                return SimpleIoc.Default.GetInstance<CustomPopupViewModel>();
             }
         }
     }
