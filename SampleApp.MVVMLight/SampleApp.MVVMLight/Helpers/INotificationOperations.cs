@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SampleApp.MVVMLight.Helpers
+﻿namespace SampleApp.MVVMLight.Helpers
 {
     public interface INotificationOperations
     {
+        void SetNotificationBadge(long badge);
+
+        void ClearNotification(long notificationId);
+
+        void ShowNotification(string title, string body);
     }
 }
