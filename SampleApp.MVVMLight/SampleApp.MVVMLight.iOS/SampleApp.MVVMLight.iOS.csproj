@@ -64,6 +64,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers\IosBootstrapper.cs" />
+    <Compile Include="Helpers\NotificationOperations.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
