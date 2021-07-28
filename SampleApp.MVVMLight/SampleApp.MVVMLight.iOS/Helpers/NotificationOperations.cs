@@ -1,13 +1,23 @@
-﻿using Foundation;
+﻿using SampleApp.MVVMLight.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UIKit;
 
 namespace SampleApp.MVVMLight.iOS.Helpers
 {
-    class NotificationOperations
+    public class NotificationOperations : INotificationOperations
     {
+        public void ClearNotification(long notificationId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetNotificationBadge(long badge)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowNotification(string title, string body)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
