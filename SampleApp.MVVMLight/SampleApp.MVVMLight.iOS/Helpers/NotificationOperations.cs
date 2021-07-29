@@ -1,5 +1,6 @@
 ﻿using SampleApp.MVVMLight.Helpers;
 using System;
+using UIKit;
 
 namespace SampleApp.MVVMLight.iOS.Helpers
 {
@@ -12,7 +13,7 @@ namespace SampleApp.MVVMLight.iOS.Helpers
 
         public void SetNotificationBadge(long badge)
         {
-            throw new NotImplementedException();
+            UIApplication.SharedApplication.ApplicationIconBadgeNumber = Convert.ToInt32(badge);
         }
 
         public void ShowNotification(string title, string body)
