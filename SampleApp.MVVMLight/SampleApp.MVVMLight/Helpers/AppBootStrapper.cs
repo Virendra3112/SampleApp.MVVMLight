@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using GalaSoft.MvvmLight.Views;
 using SampleApp.MVVMLight.Services.Implementation;
 using SampleApp.MVVMLight.ViewModels;
 using SampleApp.MVVMLight.Views;
@@ -30,6 +29,7 @@ namespace SampleApp.MVVMLight.Helpers
             navigationService.Configure(PageKeys.DrawerPageURI, typeof(NavigationDrawerPage));
             navigationService.Configure(PageKeys.DashboardPageURI, typeof(DasboardView));
             navigationService.Configure(PageKeys.NotificationViewURI, typeof(NotificationView));
+            navigationService.Configure(PageKeys.StepbarSamplePageURI, typeof(StepbarSampleView));
 
             return navigationService;
         }
