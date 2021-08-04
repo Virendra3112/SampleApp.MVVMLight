@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\AndroidBootstrapper.cs" />
+    <Compile Include="Helpers\BaseDependencyImplementation.cs" />
     <Compile Include="Helpers\NotificationOperations.cs" />
     <Compile Include="Helpers\OrientationHandler.cs" />
     <Compile Include="MainActivity.cs" />
