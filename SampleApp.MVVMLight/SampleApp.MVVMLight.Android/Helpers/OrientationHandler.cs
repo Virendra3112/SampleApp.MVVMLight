@@ -1,18 +1,18 @@
-﻿using SampleApp.MVVMLight.Services.Interface;
-using System;
+﻿using Android.Content.PM;
+using SampleApp.MVVMLight.Services.Interface;
 
 namespace SampleApp.MVVMLight.Droid.Helpers
 {
-    public class OrientationHandler : IOrientationHandler
+    public class OrientationHandler : BaseDependencyImplementation, IOrientationHandler
     {
         public void ForceLandscape()
         {
-            throw new NotImplementedException();
+            GetActivity().RequestedOrientation = ScreenOrientation.Landscape;
         }
 
         public void ForcePortrait()
         {
-            throw new NotImplementedException();
+            GetActivity().RequestedOrientation = ScreenOrientation.Portrait;
         }
     }
 }
