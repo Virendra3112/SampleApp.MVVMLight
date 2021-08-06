@@ -42,7 +42,7 @@ namespace SampleApp.MVVMLight.ViewModels
                         case "Notification View":
                             NavigationService.NavigateTo(PageKeys.NotificationViewURI);
                             break;
-                        case "Stepbar  View":
+                        case "Stepbar View":
                             NavigationService.NavigateTo(PageKeys.StepbarSamplePageURI);
                             break;
                     }
