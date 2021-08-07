@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SampleApp.MVVMLight.Helpers
+﻿namespace SampleApp.MVVMLight.Helpers
 {
     public class IsNotNullOrEmptyRule<T> : IValidationRule<T>
     {
-        public string ValidationMessage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ValidationMessage { get; set; }
 
         public bool Check(T value)
         {
-            throw new NotImplementedException();
+            if (value == null)
+            {
+                return false;
+            }
+
+            var str = $"{value }";
+            return !string.IsNullOrWhiteSpace(str);
         }
     }
 }
