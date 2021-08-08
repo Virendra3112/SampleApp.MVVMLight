@@ -79,6 +79,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\EntryValidationBorder.cs" />
     <Compile Include="Helpers\AndroidBootstrapper.cs" />
     <Compile Include="Helpers\BaseDependencyImplementation.cs" />
     <Compile Include="Helpers\NotificationOperations.cs" />
@@ -108,9 +109,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomRendrers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SampleApp.MVVMLight\SampleApp.MVVMLight.csproj">
       <Project>{A0201DDF-2CAF-470E-A61A-D4002E55C4E8}</Project>
