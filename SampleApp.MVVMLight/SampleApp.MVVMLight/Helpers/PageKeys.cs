@@ -8,5 +8,6 @@ namespace SampleApp.MVVMLight.Helpers
         public const string NotificationViewURI = nameof(NotificationView);
         public const string DrawerPageURI = nameof(NavigationDrawerPage);
         public const string StepbarSamplePageURI = nameof(StepbarSampleView);
+        public const string FormValidationPageURI = nameof(FormValidationPage);
     }
 }

@@ -30,6 +30,7 @@ namespace SampleApp.MVVMLight.Helpers
             navigationService.Configure(PageKeys.DashboardPageURI, typeof(DasboardView));
             navigationService.Configure(PageKeys.NotificationViewURI, typeof(NotificationView));
             navigationService.Configure(PageKeys.StepbarSamplePageURI, typeof(StepbarSampleView));
+            navigationService.Configure(PageKeys.FormValidationPageURI, typeof(FormValidationPage));
 
             return navigationService;
         }
