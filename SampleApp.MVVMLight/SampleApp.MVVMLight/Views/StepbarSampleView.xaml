@@ -6,7 +6,8 @@
         <StackLayout>
 
             <customcontrol:StepBarControl  StepColor="Red" Steps="4" StepSelected="1"
-                />
+                                           DefaultText="Test 123"
+                                           />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

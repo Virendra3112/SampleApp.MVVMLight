@@ -10,6 +10,7 @@ namespace SampleApp.MVVMLight.CustomControls
         public static readonly BindableProperty StepsProperty = BindableProperty.Create(nameof(Steps), typeof(int), typeof(StepBarControl), 0);
         public static readonly BindableProperty StepSelectedProperty = BindableProperty.Create(nameof(StepSelected), typeof(int), typeof(StepBarControl), 0, defaultBindingMode: BindingMode.TwoWay);
         public static readonly BindableProperty StepColorProperty = BindableProperty.Create(nameof(StepColor), typeof(Xamarin.Forms.Color), typeof(StepBarControl), Color.Black, defaultBindingMode: BindingMode.TwoWay);
+        public static readonly BindableProperty DefaultTextProperty = BindableProperty.Create(nameof(DefaultText), typeof(string), typeof(StepBarControl), string.Empty, defaultBindingMode: BindingMode.TwoWay);
 
         public Color StepColor
         {
@@ -28,6 +29,11 @@ namespace SampleApp.MVVMLight.CustomControls
             get { return (int)GetValue(StepSelectedProperty); }
             set { SetValue(StepSelectedProperty, value); }
         }
+        public string DefaultText
+        {
+            get { return (string)GetValue(DefaultTextProperty); }
+            set { SetValue(DefaultTextProperty, value); }
+        }
 
 
         public StepBarControl()
@@ -45,11 +51,11 @@ namespace SampleApp.MVVMLight.CustomControls
 
             if (propertyName == StepsProperty.PropertyName)
             {
-                for (int i = 0; i < Steps; i++)
+                for (int i = 0; i < Steps; i++) 
                 {
                     var button = new Button()
                     {
-                        Text = $"{i + 1}",
+                        Text = $"{i + 1}" + DefaultText,
                         ClassId = $"{i + 1}",
                         Style = Resources["unSelectedStyle"] as Style
                     };
