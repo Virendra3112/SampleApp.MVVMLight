@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\ExtendedEntryRenderer.cs" />
     <Compile Include="Helpers\IosBootstrapper.cs" />
     <Compile Include="Helpers\NotificationOperations.cs" />
     <Compile Include="Main.cs" />
@@ -150,7 +151,5 @@
       <Name>SampleApp.MVVMLight</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomRendrers\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
