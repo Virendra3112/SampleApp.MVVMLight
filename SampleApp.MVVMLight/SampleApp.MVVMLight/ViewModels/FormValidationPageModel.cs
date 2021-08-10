@@ -45,6 +45,8 @@ namespace SampleApp.MVVMLight.ViewModels
 
             OnValidationCommand = new Command((obj) =>
             {
+
+
                 User.FirstName.NotValidMessageError = "Name is required";
                 User.FirstName.IsNotValid = string.IsNullOrEmpty(User.FirstName.Name);
 
