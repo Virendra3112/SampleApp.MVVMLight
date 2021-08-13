@@ -1,4 +1,5 @@
 ﻿using CommonServiceLocator;
+using SampleApp.MVVMLight.CustomControls;
 using SampleApp.MVVMLight.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,6 +20,12 @@ namespace SampleApp.MVVMLight.Views
         {
             InitializeComponent();
             BindingContext = DashboardViewModel;
+
+            Label label = new Label() { Text = "Hello world", BackgroundColor = Color.Green, WidthRequest = 100, HeightRequest = 150 };
+            FloatingContentView box = new FloatingContentView();
+            box.Content = label;
+
+            //container.Children.Add(box);
         }
 
         protected override void OnAppearing()
