@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleApp.MVVMLight.Views.OTPPage">
+    <ContentPage.Content>
+        <StackLayout Padding="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="White">
+            <Entry  PlaceholderColor="Black" Placeholder="Enter OTP" Text="{Binding SmSEntry}" x:Name="smSEntry"></Entry>
+            <Button Text="Wait for sms" Command="{Binding WaitCommand}"></Button>
+            <Label x:Name="TimerLabel" HorizontalTextAlignment="Center"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

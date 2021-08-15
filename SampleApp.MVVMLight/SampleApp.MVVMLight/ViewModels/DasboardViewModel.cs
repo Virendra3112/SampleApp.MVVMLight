@@ -28,6 +28,7 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList.Add(new MenuModel { PageName = "Notification View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "Stepbar View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "FormValidatiion", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "OTP", Icon = "icon.png" });
 
         }
 
@@ -48,6 +49,9 @@ namespace SampleApp.MVVMLight.ViewModels
                             break;
                         case "FormValidatiion":
                             NavigationService.NavigateTo(PageKeys.FormValidationPageURI);
+                            break;
+                        case "OTP":
+                            NavigationService.NavigateTo(PageKeys.OTPPageURI);
                             break;
                     }
                 }
