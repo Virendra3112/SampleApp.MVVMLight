@@ -31,6 +31,7 @@ namespace SampleApp.MVVMLight.Helpers
             navigationService.Configure(PageKeys.NotificationViewURI, typeof(NotificationView));
             navigationService.Configure(PageKeys.StepbarSamplePageURI, typeof(StepbarSampleView));
             navigationService.Configure(PageKeys.FormValidationPageURI, typeof(FormValidationPage));
+            navigationService.Configure(PageKeys.OTPPageURI, typeof(OTPPage));
 
             return navigationService;
         }
