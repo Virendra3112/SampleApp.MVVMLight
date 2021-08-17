@@ -6,6 +6,7 @@ using SampleApp.MVVMLight.Droid.Helpers;
 using Acr.UserDialogs;
 using Com.OneSignal;
 using Com.OneSignal.Abstractions;
+using System;
 
 namespace SampleApp.MVVMLight.Droid
 {
@@ -36,6 +37,10 @@ namespace SampleApp.MVVMLight.Droid
             AndroidBootstrapper.Initialize();
 
             UserDialogs.Init(this);
+
+            string Value = AppHashKeyHelper.GetAppHashKey(this);
+
+            Console.WriteLine("******** Hash " + Value);
 
             LoadApplication(new App());
         }
