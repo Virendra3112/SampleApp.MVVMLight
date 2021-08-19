@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp.MVVMLight", "Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPay.Plugin.Android", "RazorPay.Plugin.Android\RazorPay.Plugin.Android.csproj", "{33450906-C9C3-4161-A67F-DC8D58AE7209}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPay.Plugin.iOS", "RazorPay.Plugin.iOS\RazorPay.Plugin.iOS.csproj", "{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{33450906-C9C3-4161-A67F-DC8D58AE7209}.Release|iPhone.Build.0 = Release|Any CPU
 		{33450906-C9C3-4161-A67F-DC8D58AE7209}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{33450906-C9C3-4161-A67F-DC8D58AE7209}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Release|iPhone.Build.0 = Release|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D4BE6A5A-AC65-45F2-B56E-DE53F7CD28BC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
