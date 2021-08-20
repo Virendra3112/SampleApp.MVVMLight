@@ -1,10 +1,71 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleApp.MVVMLight.CustomControls.CustomHeaderBar">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+             x:Class="SampleApp.MVVMLight.CustomControls.CustomHeaderBar"         
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="self" FlowDirection="MatchParent" mc:Ignorable="d">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="GridSize"
+                      x:TypeArguments="GridLength"
+                      Android="20"
+                      iOS="40" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{StaticResource GridSize}" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0"
+                      Grid.RowSpan="3"
+                      Aspect="Fill"
+                      HorizontalOptions="Fill" BackgroundColor="Pink"
+                      VerticalOptions="Fill" />
+
+            <Grid Grid.Row="1" Padding="5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="40" />
+                </Grid.ColumnDefinitions>
+
+                <ContentView Grid.Column="0" Padding="10,5">
+                    <ContentView.Content>
+                        <Image x:Name="backImg"
+                                  IsVisible="{Binding Source={x:Reference self}, Path=IsContentVisible}"
+                                  Source="{Binding Source={x:Reference self}, Path=LeftIcon, Converter={x:StaticResource cultureConvertor}, ConverterParameter=HeaderBarBackBtn}" />
+                    </ContentView.Content>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={x:Reference self}, Path=LeftTappedCommand}" />
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+
+                <Label Grid.Column="1"
+                          HorizontalTextAlignment="Center"
+                          LineBreakMode="TailTruncation"
+                          Style="{StaticResource LabelHeader}"
+                          Text="{Binding Source={x:Reference self}, Path=Title}"
+                          TextColor="{StaticResource White}"
+                          VerticalTextAlignment="Center" />
+
+                <StackLayout Grid.Column="2"
+                          Margin="0"
+                          Padding="0"
+                          Spacing="0"
+                          VerticalOptions="Center">
+                    <ContentView Padding="10,5" Content="{Binding Source={x:Reference self}, Path=RightContent}">
+                        <ContentView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference self}, Path=RightTappedCommand}" />
+                        </ContentView.GestureRecognizers>
+                    </ContentView>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
 </ContentView>
