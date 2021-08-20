@@ -1,5 +1,4 @@
 ﻿using SampleApp.MVVMLight.Helpers;
-using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -23,7 +22,6 @@ namespace SampleApp.MVVMLight.ViewModels
             this.Subscribe<string>(Events.SmsRecieved, code =>
             {
                 SmSEntry = code;
-                _stopTimer = true;
             });
         }
 
