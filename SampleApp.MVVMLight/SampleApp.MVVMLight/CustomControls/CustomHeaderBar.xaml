@@ -39,7 +39,7 @@
                     <ContentView.Content>
                         <Image x:Name="backImg"
                                   IsVisible="{Binding Source={x:Reference self}, Path=IsContentVisible}"
-                                  Source="{Binding Source={x:Reference self}, Path=LeftIcon, Converter={x:StaticResource cultureConvertor}, ConverterParameter=HeaderBarBackBtn}" />
+                                  Source="icon" />
                     </ContentView.Content>
                     <ContentView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={x:Reference self}, Path=LeftTappedCommand}" />
@@ -49,9 +49,8 @@
                 <Label Grid.Column="1"
                           HorizontalTextAlignment="Center"
                           LineBreakMode="TailTruncation"
-                          Style="{StaticResource LabelHeader}"
                           Text="{Binding Source={x:Reference self}, Path=Title}"
-                          TextColor="{StaticResource White}"
+                          TextColor="Black" FontSize="Medium" FontAttributes="Bold"
                           VerticalTextAlignment="Center" />
 
                 <StackLayout Grid.Column="2"
