@@ -33,7 +33,7 @@
                                 <Frame Margin="10" Padding="0,20" CornerRadius="5" HeightRequest="80" WidthRequest="80">
                                     <FlexLayout Direction="Column" AlignItems="Center">
                                         <Image Source="{Binding Icon}" WidthRequest="50" HeightRequest="50"/>
-                                        <Label Text="{Binding PageName}" FontSize="Small"  
+                                        <Label Text="{Binding PageName}" FontSize="Small"  TextColor="Black"
                                              HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"  LineBreakMode="CharacterWrap" MaxLines="2"/>
                                     </FlexLayout>
                                     <Frame.GestureRecognizers>
