@@ -1,12 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:SampleApp.MVVMLight.CustomControls"
+             NavigationPage.HasNavigationBar="False"
              x:Class="SampleApp.MVVMLight.Views.OTPPage">
     <ContentPage.Content>
-        <StackLayout Padding="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="White">
-            <Entry  PlaceholderColor="Black" Placeholder="Enter OTP" Text="{Binding SmSEntry}" x:Name="smSEntry"></Entry>
-            <Button Text="Wait for sms" Command="{Binding WaitCommand}"></Button>
-            <Label x:Name="TimerLabel" HorizontalTextAlignment="Center"></Label>
-        </StackLayout>
+
+        <Grid Margin="0"
+                  Padding="0"
+                  RowSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="70*" />
+
+            </Grid.RowDefinitions>
+
+            <controls:CustomHeaderBar x:Name="headerBar"
+                      Title="Test Page"
+                      Grid.Row="0"
+                      Margin="0"
+                      Padding="0"
+                      BackgroundImage="header"
+                      IsContentVisible="False">
+                <controls:CustomHeaderBar.RightContent>
+                    <Image Source="icon" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40"/>
+                </controls:CustomHeaderBar.RightContent>
+            </controls:CustomHeaderBar>
+
+
+            <StackLayout Grid.Row="1" Padding="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="White">
+                <Entry  PlaceholderColor="Black" Placeholder="Enter OTP" Text="{Binding SmSEntry}" x:Name="smSEntry"></Entry>
+                <Button Text="Wait for sms" Command="{Binding WaitCommand}"></Button>
+                <Label x:Name="TimerLabel" HorizontalTextAlignment="Center"></Label>
+
+            </StackLayout>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

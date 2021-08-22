@@ -1,5 +1,6 @@
 ﻿using CommonServiceLocator;
 using SampleApp.MVVMLight.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,8 +18,15 @@ namespace SampleApp.MVVMLight.Views
         }
         public OTPPage()
         {
-            InitializeComponent();
-            BindingContext = OTPPageViewModel;
+            try
+            {
+                InitializeComponent();
+                BindingContext = OTPPageViewModel;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
