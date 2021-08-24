@@ -1,10 +1,53 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleApp.MVVMLight.CustomControls.NotificationIconWithBadge">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="SampleApp.MVVMLight.CustomControls.NotificationIconWithBadge"
+              x:Name="notificationIconWithBadge"
+          BackgroundColor="Transparent"
+          HeightRequest="30"
+          WidthRequest="30">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+        <RelativeLayout>
+            <ff:CachedImage x:Name="imgBell"
+                      Margin="5,0,10,0"
+                      Aspect="Fill"
+                      HorizontalOptions="Fill"
+                      Source="icon.png" HeightRequest="20" WidthRequest="20"
+                      VerticalOptions="Fill" />
+
+            <Frame x:Name="frmNotificationBubble"
+                      Margin="0"
+                      Padding="0"
+                      BackgroundColor="Red"
+                      CornerRadius="8"
+                      HasShadow="False"
+                      HeightRequest="16"
+                      IsClippedToBounds="True"
+                      IsVisible="False"
+                      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                                                        ElementName=imgBell,
+                                                                        Factor=1,
+                                                                        Constant=-8,
+                                                                        Property=Width}"
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                                                        ElementName=imgBell,
+                                                                        Factor=1,
+                                                                        Constant=-8,
+                                                                        Property=Y}"
+                      WidthRequest="16">
+                <Label x:Name="lblCount"
+                          FontSize="10"
+                          HorizontalOptions="CenterAndExpand"
+                          HorizontalTextAlignment="Center"
+                          Text="{Binding Source={x:Reference notificationIconWithBadge}, Path=BadgeCount}"
+                          TextColor="Blue"
+                          VerticalOptions="CenterAndExpand"
+                          VerticalTextAlignment="Center" />
+            </Frame>
+        </RelativeLayout>
+    </ContentView.Content>
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding Source={x:Reference notificationIconWithBadge}, Path=TappedCommand}" />
+    </ContentView.GestureRecognizers>
 </ContentView>
