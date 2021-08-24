@@ -7,6 +7,7 @@ using Acr.UserDialogs;
 using Com.OneSignal;
 using Com.OneSignal.Abstractions;
 using System;
+using FFImageLoading.Forms.Platform;
 
 namespace SampleApp.MVVMLight.Droid
 {
@@ -35,6 +36,8 @@ namespace SampleApp.MVVMLight.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             AndroidBootstrapper.Initialize();
+
+            CachedImageRenderer.Init(true);
 
             UserDialogs.Init(this);
 
