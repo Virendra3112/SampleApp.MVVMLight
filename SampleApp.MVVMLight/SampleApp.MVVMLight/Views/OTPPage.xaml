@@ -21,9 +21,10 @@
                       Margin="0"
                       Padding="0"
                       BackgroundImage="header"
-                      IsContentVisible="False">
+                      IsContentVisible="true">
                 <controls:CustomHeaderBar.RightContent>
-                    <Image Source="icon" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40"/>
+                    <!--<Image Source="icon" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40"/>-->
+                    <controls:NotificationIconWithBadge  />
                 </controls:CustomHeaderBar.RightContent>
             </controls:CustomHeaderBar>
 

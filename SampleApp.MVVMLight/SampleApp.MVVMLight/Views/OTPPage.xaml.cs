@@ -1,4 +1,5 @@
 ﻿using CommonServiceLocator;
+using SampleApp.MVVMLight.CustomControls;
 using SampleApp.MVVMLight.ViewModels;
 using System;
 using Xamarin.Forms;
@@ -22,6 +23,8 @@ namespace SampleApp.MVVMLight.Views
             {
                 InitializeComponent();
                 BindingContext = OTPPageViewModel;
+
+                NotificationIconWithBadge.SetNotificationCount(6);
             }
             catch (Exception ex)
             {
