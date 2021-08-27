@@ -1,10 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleApp.MVVMLight.CustomControls.CustomFeedbackPage">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
-</ContentView>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"  
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+                 xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  
+                 CloseWhenBackgroundIsClicked="True"   BackgroundColor="Yellow"
+                 x:Class="Popup.MyPopupPage">
+    <popup:PopupPage.Content>
+        <StackLayout Padding="10"  
+                     BackgroundColor="Gray"  
+                     HorizontalOptions="CenterAndExpand"  
+                     VerticalOptions="CenterAndExpand">
+            <Label Text="Fresh MVVM Rg.Plugin.Popup"  
+                VerticalOptions="CenterAndExpand"   
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Close Popup"/>
+        </StackLayout>
+    </popup:PopupPage.Content>
+</popup:PopupPage>  

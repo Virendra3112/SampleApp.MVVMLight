@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms.Xaml;
 
 namespace SampleApp.MVVMLight.CustomControls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomFeedbackPage : ContentView
+    public partial class CustomFeedbackPage : PopupPage
     {
         public CustomFeedbackPage()
         {
             InitializeComponent();
+            this.BackgroundColor = new Xamarin.Forms.Color(0, 0, 0, 0.80);
         }
     }
 }
