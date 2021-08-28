@@ -1,4 +1,6 @@
-﻿using SampleApp.MVVMLight.Helpers;
+﻿using Rg.Plugins.Popup.Services;
+using SampleApp.MVVMLight.CustomControls;
+using SampleApp.MVVMLight.Helpers;
 using SampleApp.MVVMLight.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -17,6 +19,7 @@ namespace SampleApp.MVVMLight.ViewModels
             set { _categoryList = value; OnPropertyChanged(); }
         }
         public ICommand MenuItemCommand { get; set; }
+
         public DasboardViewModel()
         {
 
@@ -29,10 +32,11 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList.Add(new MenuModel { PageName = "Stepbar View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "FormValidatiion", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "OTP", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "Feedback", Icon = "icon.png" });
 
         }
 
-        private void MenuSelected(object obj)
+        private async void MenuSelected(object obj)
         {
             try
             {
@@ -52,6 +56,9 @@ namespace SampleApp.MVVMLight.ViewModels
                             break;
                         case "OTP":
                             NavigationService.NavigateTo(PageKeys.OTPPageURI);
+                            break;
+                        case "Feedback":
+                            await PopupNavigation.Instance.PushAsync(new CustomFeedbackPage());
                             break;
                     }
                 }
