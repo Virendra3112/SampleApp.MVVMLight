@@ -41,6 +41,8 @@ namespace SampleApp.MVVMLight.Droid
 
             UserDialogs.Init(this);
 
+            Rg.Plugins.Popup.Popup.Init(this);
+
             string Value = AppHashKeyHelper.GetAppHashKey(this);
 
             Console.WriteLine("******** Hash " + Value);
