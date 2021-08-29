@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customcontrol="clr-namespace:SampleApp.MVVMLight.CustomControls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:customcontrol="clr-namespace:SampleApp.MVVMLight.CustomControls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="SampleApp.MVVMLight.Views.StepbarSampleView">
     <ContentPage.Content>
         <StackLayout>
@@ -8,6 +10,16 @@
             <customcontrol:StepBarControl  StepColor="Red" Steps="4" StepSelected="1"
                                            DefaultText="Test 123"
                                            />
+
+            <xct:BadgeView
+            BackgroundColor="Red"
+            FontAttributes="Bold"
+            FontSize="Medium"
+            TextColor="White"
+            Text="1">
+                <Label
+                Text="This label has a badge in the top-right"/>
+            </xct:BadgeView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
