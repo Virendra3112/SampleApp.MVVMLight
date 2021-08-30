@@ -21,7 +21,7 @@ namespace SampleApp.MVVMLight.Views
             InitializeComponent();
             BindingContext = DashboardViewModel;
 
-            Label label = new Label() { Text = "Hello world", BackgroundColor = Color.Green, WidthRequest = 100, HeightRequest = 150 };
+            Label label = new Label() { Text = "Welcome,", BackgroundColor = Color.Green, WidthRequest = 100, HeightRequest = 150 };
             FloatingContentView box = new FloatingContentView();
             box.Content = label;
 
