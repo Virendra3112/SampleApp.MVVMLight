@@ -10,5 +10,6 @@ namespace SampleApp.MVVMLight.Helpers
         public const string StepbarSamplePageURI = nameof(StepbarSampleView);
         public const string FormValidationPageURI = nameof(FormValidationPage);
         public const string OTPPageURI = nameof(OTPPage);
+        public const string BottomSheetPageURI = nameof(BottomSheetDemoView);
     }
 }
