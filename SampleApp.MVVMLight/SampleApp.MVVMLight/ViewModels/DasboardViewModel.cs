@@ -33,6 +33,7 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList.Add(new MenuModel { PageName = "FormValidatiion", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "OTP", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "Feedback", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "Popup", Icon = "icon.png" });
 
         }
 
@@ -59,6 +60,9 @@ namespace SampleApp.MVVMLight.ViewModels
                             break;
                         case "Feedback":
                             await PopupNavigation.Instance.PushAsync(new CustomFeedbackPage());
+                            break;
+                        case "Popup":
+                            NavigationService.NavigateTo(PageKeys.BottomSheetPageURI);
                             break;
                     }
                 }

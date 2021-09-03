@@ -13,11 +13,13 @@ namespace SampleApp.MVVMLight.ViewModels
             set { _smSEntry = value; OnPropertyChanged(); }
         }
         public ICommand WaitCommand { get; set; }
+        public ICommand OpenPopupCommand { get; set; }
 
 
         public OTPPageViewModel()
         {
             WaitCommand = new Command(OnWait);
+            //OpenPopupCommand = new Command(OnOpenPopup);
 
             this.Subscribe<string>(Events.SmsRecieved, code =>
             {
