@@ -89,6 +89,7 @@
     <Compile Include="Helpers\ListenToSms.cs" />
     <Compile Include="Helpers\NotificationOperations.cs" />
     <Compile Include="Helpers\OrientationHandler.cs" />
+    <Compile Include="Helpers\ShowCamera.cs" />
     <Compile Include="Helpers\SmsReceiver.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
