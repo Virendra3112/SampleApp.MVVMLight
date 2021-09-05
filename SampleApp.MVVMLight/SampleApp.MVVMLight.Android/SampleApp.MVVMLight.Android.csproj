@@ -33,6 +33,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,14 +86,18 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\CameraPreviewRenderer.cs" />
     <Compile Include="CustomRendrers\EntryValidationBorder.cs" />
     <Compile Include="Helpers\AndroidBootstrapper.cs" />
     <Compile Include="Helpers\AppHashKeyHelper.cs" />
+    <Compile Include="Helpers\AutoFitTextureView.cs" />
     <Compile Include="Helpers\BaseDependencyImplementation.cs" />
+    <Compile Include="Helpers\CameraCaptureStateListener.cs" />
+    <Compile Include="Helpers\CameraFragment.cs" />
+    <Compile Include="Helpers\CameraStateListener.cs" />
     <Compile Include="Helpers\ListenToSms.cs" />
     <Compile Include="Helpers\NotificationOperations.cs" />
     <Compile Include="Helpers\OrientationHandler.cs" />
-    <Compile Include="Helpers\ShowCamera.cs" />
     <Compile Include="Helpers\SmsReceiver.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -116,7 +124,11 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CameraFragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleApp.MVVMLight\SampleApp.MVVMLight.csproj">
       <Project>{A0201DDF-2CAF-470E-A61A-D4002E55C4E8}</Project>
@@ -125,6 +137,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\box.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\box_curved.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\RoundCorner.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
