@@ -33,6 +33,7 @@ namespace SampleApp.MVVMLight.Helpers
             navigationService.Configure(PageKeys.FormValidationPageURI, typeof(FormValidationPage));
             navigationService.Configure(PageKeys.OTPPageURI, typeof(OTPPage));
             navigationService.Configure(PageKeys.BottomSheetPageURI, typeof(BottomSheetDemoView));
+            navigationService.Configure(PageKeys.CameraPreviewPageURI, typeof(HalfScreenCameraView));
 
             return navigationService;
         }

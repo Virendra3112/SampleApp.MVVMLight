@@ -11,5 +11,6 @@ namespace SampleApp.MVVMLight.Helpers
         public const string FormValidationPageURI = nameof(FormValidationPage);
         public const string OTPPageURI = nameof(OTPPage);
         public const string BottomSheetPageURI = nameof(BottomSheetDemoView);
+        public const string CameraPreviewPageURI = nameof(HalfScreenCameraView);
     }
 }
