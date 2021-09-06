@@ -1,4 +1,6 @@
-﻿using Android.Graphics.Drawables;
+﻿using Android.Content;
+using Android.Graphics.Drawables;
+using Android.Views;
 using SampleApp.MVVMLight.CustomControls;
 using SampleApp.MVVMLight.Droid.CustomRendrers;
 using Xamarin.Forms;
@@ -9,6 +11,11 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 {
     public class ExtendedEntryRenderer : EntryRenderer
     {
+
+        public ExtendedEntryRenderer(Context context) : base(context)
+        {
+
+        }
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
@@ -30,23 +37,29 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 
         void UpdateBorders()
         {
-            GradientDrawable shape = new GradientDrawable();
-            shape.SetShape(ShapeType.Rectangle);
-            shape.SetCornerRadius(0);
+            //GradientDrawable shape = new GradientDrawable();
+            //shape.SetShape(ShapeType.Rectangle);
+            //shape.SetCornerRadius(10);
 
-            if (((ExtendedEntry)this.Element).IsBorderErrorVisible)
-            {
-                shape.SetStroke(3, ((ExtendedEntry)this.Element).BorderErrorColor.ToAndroid());
-            }
-            else
-            {
-                shape.SetStroke(3, Android.Graphics.Color.LightGray);
-                this.Control.SetBackground(shape);
-            }
+            //shape.SetCornerRadii(new float[] { 8, 8, 8, 8, 0, 0, 0, 0 }); // set corner Radious 
 
-            this.Control.SetBackground(shape);
+            //if (((ExtendedEntry)this.Element).IsBorderErrorVisible)
+            //{
+            //    shape.SetStroke(3, ((ExtendedEntry)this.Element).BorderErrorColor.ToAndroid());
+            //}
+            //else
+            //{
+            //    shape.SetStroke(3, Android.Graphics.Color.LightGray);
+            //    this.Control.SetBackground(shape);
+            //}
+
+            //this.Control.SetBackground(shape);
+            Control.Background = Android.App.Application.Context.GetDrawable(Resource.Drawable.box_curved);
+
+            Control.Gravity = GravityFlags.CenterVertical;
+            Control.SetPadding(10, 0, 0, 0);
         }
-
     }
 
 }
+

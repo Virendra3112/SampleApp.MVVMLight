@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SampleApp.MVVMLight.CustomControls" xmlns:behavior="clr-namespace:SampleApp.MVVMLight.Behaviors"
-             x:Class="SampleApp.MVVMLight.Views.FormValidationPage">
+             x:Class="SampleApp.MVVMLight.Views.FormValidationPage"
+             BackgroundColor="#E5EBFF">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Padding="20" x:Name="layout">
+
+        <Frame BackgroundColor="White" Margin="30">
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="20" x:Name="layout" BackgroundColor="White">
             <local:ExtendedEntry Placeholder="Name" ErrorText="{Binding User.FirstName.NotValidMessageError}"
-                                     BorderErrorColor="Red"
+                                     BorderErrorColor="Red" BackgroundColor="#E5EBFF"
                                      Text="{Binding User.FirstName.Name}"
-                                     HeightRequest="40"
+                                     HeightRequest="40" Margin="0"
                                      IsBorderErrorVisible="{Binding User.FirstName.IsNotValid, Mode=TwoWay}">
                 <local:ExtendedEntry.Behaviors>
                     <behavior:EmptyEntryValidatorBehavior />
@@ -15,7 +18,7 @@
             </local:ExtendedEntry>
 
             <local:ExtendedEntry Placeholder="Email" ErrorText="{Binding User.Email.NotValidMessageError}"
-                                     BorderErrorColor="Red"
+                                     BorderErrorColor="Red" BackgroundColor="#E5EBFF"
                                      Text="{Binding User.Email.Name}"
                                      HeightRequest="40"
                                      IsBorderErrorVisible="{Binding User.Email.IsNotValid, Mode=TwoWay}">
@@ -25,7 +28,7 @@
             </local:ExtendedEntry>
 
             <local:ExtendedEntry Placeholder="Password" ErrorText="{Binding User.Password.NotValidMessageError}"
-                                    BorderErrorColor="Red" IsPassword="true"
+                                    BorderErrorColor="Red" IsPassword="true" BackgroundColor="#E5EBFF"
                                      Text="{Binding User.Password.Name}"
                                      HeightRequest="40"
                                      IsBorderErrorVisible="{Binding User.Password.IsNotValid, Mode=TwoWay}">
@@ -40,5 +43,7 @@
                       HorizontalOptions="FillAndExpand"
                       TextColor="White"/>
         </StackLayout>
+
+        </Frame>
     </ContentPage.Content>
 </ContentPage>

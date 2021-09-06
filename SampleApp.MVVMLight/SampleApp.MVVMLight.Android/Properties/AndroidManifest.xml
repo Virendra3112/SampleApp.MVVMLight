@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.sampleapp.mvvmlight">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.sampleapp.mvvmlight" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
 	<application android:label="SampleApp.MVVMLight.Android" android:theme="@style/MainTheme">
-		<receiver android:name="com.onesignal.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+		<receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
 				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
 				<category android:name="${applicationId}" />
@@ -11,7 +10,7 @@
 		</receiver>
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<permission android:name="${applicationId}.permission.C2D_MESSAGE"
-            android:protectionLevel="signature" />
+	<permission android:name="${applicationId}.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 	<uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
+	<uses-permission android:name="android.permission.CAMERA" />
 </manifest>
