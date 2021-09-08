@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomRendrers\CameraPreviewRenderer.cs" />
+    <Compile Include="CustomRendrers\CustomRoundedEntryRenderer.cs" />
     <Compile Include="CustomRendrers\EntryValidationBorder.cs" />
     <Compile Include="Helpers\AndroidBootstrapper.cs" />
     <Compile Include="Helpers\AppHashKeyHelper.cs" />

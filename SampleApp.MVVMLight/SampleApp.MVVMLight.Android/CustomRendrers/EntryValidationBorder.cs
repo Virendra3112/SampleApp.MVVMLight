@@ -1,5 +1,4 @@
 ﻿using Android.Content;
-using Android.Graphics.Drawables;
 using Android.Views;
 using SampleApp.MVVMLight.CustomControls;
 using SampleApp.MVVMLight.Droid.CustomRendrers;
