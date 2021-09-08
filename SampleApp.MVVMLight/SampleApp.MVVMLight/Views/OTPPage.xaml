@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:controls="clr-namespace:SampleApp.MVVMLight.CustomControls"
-             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasNavigationBar="False" BackgroundColor="#E5EBFF"
              x:Class="SampleApp.MVVMLight.Views.OTPPage">
     <ContentPage.Content>
 
@@ -34,6 +34,21 @@
                 <Entry  PlaceholderColor="Black" Placeholder="Enter OTP" Text="{Binding SmSEntry}" x:Name="smSEntry"></Entry>
                 <Button Text="Wait for sms" Command="{Binding WaitCommand}"></Button>
                 <Label x:Name="TimerLabel" HorizontalTextAlignment="Center"></Label>
+
+                <Frame Padding="1" Margin="0" CornerRadius="10" BackgroundColor="#E5EBFF">
+                <controls:CustomRoundedEntry 
+                                            CornerRadius="10"  
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="Transparent"
+                             BackgroundColor="Transparent"
+                             HorizontalTextAlignment="Center"  
+                             FontSize="17"  
+                             HeightRequest="40"  
+                             Placeholder="Custom Entry"  
+                             PlaceholderColor="Gray"  
+                             TextColor="Black"
+                             WidthRequest="800"/>
+                </Frame>
 
             </StackLayout>
 
