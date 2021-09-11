@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="204" height="207" viewBox="0 0 204 207">
+  <g id="Group_5125" data-name="Group 5125" transform="translate(-3552.431 -3103.076)">
+    <g id="Ellipse_64" data-name="Ellipse 64" transform="translate(3559.431 3110.076)" fill="#86dc4d" stroke="#f1f1f1" stroke-width="7">
+      <ellipse cx="95" cy="96.5" rx="95" ry="96.5" stroke="none"/>
+      <ellipse cx="95" cy="96.5" rx="98.5" ry="100" fill="none"/>
+    </g>
+    <ellipse id="Ellipse_65" data-name="Ellipse 65" cx="76.5" cy="78" rx="76.5" ry="78" transform="translate(3577.431 3128.076)" fill="#fff"/>
+    <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M35.389,2.531,26.106,21.353,5.337,24.381A4.551,4.551,0,0,0,2.82,32.143L17.847,46.786,14.293,67.47a4.546,4.546,0,0,0,6.6,4.791l18.58-9.766,18.58,9.766a4.55,4.55,0,0,0,6.6-4.791L61.092,46.786,76.118,32.143A4.551,4.551,0,0,0,73.6,24.381l-20.77-3.028L43.549,2.531a4.553,4.553,0,0,0-8.16,0Z" transform="translate(3615.742 3168.185)" fill="#86dc4d"/>
+  </g>
+</svg>

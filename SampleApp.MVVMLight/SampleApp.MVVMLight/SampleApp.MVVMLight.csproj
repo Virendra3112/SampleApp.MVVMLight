@@ -11,6 +11,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\path.svg" />
+    <None Remove="Resources\pathvertical.svg" />
+    <None Remove="Resources\starone.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\path.svg" />
+    <EmbeddedResource Include="Resources\pathvertical.svg" />
+    <EmbeddedResource Include="Resources\starone.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.514" />
     <PackageReference Include="Autofac" Version="6.2.0" />
     <PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="6.0.1" />
