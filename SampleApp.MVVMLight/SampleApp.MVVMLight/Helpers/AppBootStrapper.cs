@@ -34,6 +34,7 @@ namespace SampleApp.MVVMLight.Helpers
             navigationService.Configure(PageKeys.OTPPageURI, typeof(OTPPage));
             navigationService.Configure(PageKeys.BottomSheetPageURI, typeof(BottomSheetDemoView));
             navigationService.Configure(PageKeys.CameraPreviewPageURI, typeof(HalfScreenCameraView));
+            navigationService.Configure(PageKeys.ProgressPathViewPageURI, typeof(ProgressPathView));
 
             return navigationService;
         }
