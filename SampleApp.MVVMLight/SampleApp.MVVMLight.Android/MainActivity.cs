@@ -8,6 +8,7 @@ using Com.OneSignal;
 using Com.OneSignal.Abstractions;
 using System;
 using FFImageLoading.Forms.Platform;
+using FFImageLoading.Svg.Forms;
 
 namespace SampleApp.MVVMLight.Droid
 {
@@ -34,6 +35,9 @@ namespace SampleApp.MVVMLight.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            var ignore = typeof(SvgCachedImage);
 
             AndroidBootstrapper.Initialize();
 
