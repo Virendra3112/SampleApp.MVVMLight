@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="SampleApp.MVVMLight.Views.ProgressPathView"
              x:Name="self" BackgroundColor="#E5EBFF">
+
     <ContentPage.Content>
         <Grid Margin="0" Padding="0" RowSpacing="0">
             <Grid.RowDefinitions>
@@ -11,6 +12,110 @@
             </Grid.RowDefinitions>
 
             <!--<customcontrol:HeaderViewWithOptions Grid.Row="0"/>-->
+
+            <ScrollView Grid.Row="1">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Label Padding="0" Margin="20" TextColor="#002FFF" FontSize="15" FontAttributes="Bold"
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="CenterAndExpand" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{Binding Name}"/>
+                                    <Span Text=" LEARNING PATH"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <FlexLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                            BackgroundColor="Transparent"
+                            BindableLayout.ItemsSource="{Binding GroupedItems}" 
+                           Wrap="Wrap" Direction="Row" JustifyContent="Start"
+                           AlignItems="Start" AlignContent="Start" Padding="0" Margin="20,0,20,0" >
+                        <BindableLayout.EmptyView>
+                            <ContentView>
+                                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Label Text="No items available."                                               
+                                               Margin="10,25,10,10"
+                                               FontAttributes="Bold"
+                                               FontSize="18"
+                                               HorizontalOptions="Fill"
+                                               HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </ContentView>
+                        </BindableLayout.EmptyView>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0">
+                                    <StackLayout FlexLayout.Basis="100%" Orientation="Horizontal"
+                                         HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                         Padding="0" Margin="0" Spacing="0">
+
+                                        <Frame CornerRadius="60" HeightRequest="110" WidthRequest="110" BackgroundColor="White"
+                                           HorizontalOptions="Start" Padding="5" Margin="0" IsClippedToBounds="True" HasShadow="False">
+
+                                            <Frame CornerRadius="60" HeightRequest="110" WidthRequest="110" BackgroundColor="#E6E6E6"
+                                           HorizontalOptions="Center" Padding="6" Margin="10" IsClippedToBounds="True" HasShadow="False">
+
+                                                <Frame CornerRadius="60" HeightRequest="110" WidthRequest="110" BackgroundColor="#C2C2C2"
+                                              HorizontalOptions="Center" Padding="8" Margin="0" IsClippedToBounds="True" HasShadow="False">
+
+                                                    <Frame CornerRadius="60" HeightRequest="110" WidthRequest="110" BackgroundColor="White"
+                                                    HorizontalOptions="Center" Padding="1" Margin="0" IsClippedToBounds="True" HasShadow="False">
+
+                                                        <Label HorizontalOptions="CenterAndExpand"
+                                                           VerticalOptions="CenterAndExpand"
+                                                           TextColor="Black"
+                                                           FontSize="25" FontAttributes="Bold"
+                                                        Text="{Binding Id}"/>
+                                                    </Frame>
+
+                                                    <Frame.Triggers>
+                                                        <DataTrigger TargetType="Frame" Binding="{Binding IsCompleted}" Value="True">
+                                                            <Setter Property="BackgroundColor" Value="#86DC4D" />
+                                                        </DataTrigger>
+                                                    </Frame.Triggers>
+                                                </Frame>
+                                            </Frame>
+                                        </Frame>
+
+                                        <Label HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="100" HorizontalTextAlignment="Center"
+                                       Padding="0" Margin="0,0,0,0" TextColor="Black"
+                                       FontSize="14" Text="{Binding Name}" LineBreakMode="WordWrap" MaxLines="3"/>
+
+                                        <!--<StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference self}, Path=BindingContext.ItemSelectedCommand}" CommandParameter="{Binding}" />
+                                    </StackLayout.GestureRecognizers>-->
+                                    </StackLayout>
+
+                                    <ffimageloadingsvg:SvgCachedImage
+                                                          Margin="25,0,0,0" Aspect="AspectFit" BackgroundColor="Transparent"
+                                                          HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                                                          HeightRequest="50" WidthRequest="70"
+                                                          Source="resource://SampleApp.MVVMLight.Resources.pathvertical.svg">
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--<ContentPage.Content>
+        <Grid Margin="0" Padding="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="70*" />
+            </Grid.RowDefinitions>
+
+            -->
+<!--<customcontrol:HeaderViewWithOptions Grid.Row="0"/>-->
+<!--
 
             <ScrollView Grid.Row="1">
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -132,4 +237,4 @@
             </ScrollView>
         </Grid>
     </ContentPage.Content>
-</ContentPage>
+</ContentPage>-->
