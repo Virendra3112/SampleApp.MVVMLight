@@ -33,7 +33,8 @@ namespace SampleApp.MVVMLight.ViewModels
                     Id = 1,
                     Name = "Test Item 1",
                     ImageOrientation = "Horizontal",
-                    ImagePath = "resource://SampleApp.MVVMLight.Resources.path.svg"
+                    ImagePath = "resource://SampleApp.MVVMLight.Resources.path.svg",
+                    IsCompleted = true
                 });
 
                 GroupedItems.Add(new ProgressPathModel
@@ -41,23 +42,50 @@ namespace SampleApp.MVVMLight.ViewModels
                     Id = 2,
                     Name = "Test Item 2",
                     ImageOrientation = "Vertical",
-                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg"
+                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg",
+                    IsCompleted = false
                 });
-                
+
                 GroupedItems.Add(new ProgressPathModel
                 {
                     Id = 3,
                     Name = "Test Item 3",
                     ImageOrientation = "Horizontal",
-                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg"
+                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg",
+                    IsCompleted = false
                 });
-                
+
                 GroupedItems.Add(new ProgressPathModel
                 {
                     Id = 4,
                     Name = "Test Item 4",
                     ImageOrientation = "Vertical",
-                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg"
+                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg",
+                    IsCompleted = false
+                });
+                GroupedItems.Add(new ProgressPathModel
+                {
+                    Id = 5,
+                    Name = "Test Item 5",
+                    ImageOrientation = "Vertical",
+                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg",
+                    IsCompleted = false
+                });
+                GroupedItems.Add(new ProgressPathModel
+                {
+                    Id = 6,
+                    Name = "Test Item 6",
+                    ImageOrientation = "Vertical",
+                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg",
+                    IsCompleted = false
+                });
+                GroupedItems.Add(new ProgressPathModel
+                {
+                    Id = 7,
+                    Name = "Test Item 7",
+                    ImageOrientation = "Vertical",
+                    ImagePath = "resource://SampleApp.MVVMLight.Resources.pathvertical.svg",
+                    IsCompleted = false
                 });
 
             }
