@@ -11,12 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\lock.svg" />
     <None Remove="Resources\path.svg" />
     <None Remove="Resources\pathvertical.svg" />
     <None Remove="Resources\starone.svg" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\lock.svg" />
     <EmbeddedResource Include="Resources\path.svg" />
     <EmbeddedResource Include="Resources\pathvertical.svg" />
     <EmbeddedResource Include="Resources\starone.svg" />
