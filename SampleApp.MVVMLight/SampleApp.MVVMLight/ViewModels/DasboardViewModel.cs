@@ -35,6 +35,7 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList.Add(new MenuModel { PageName = "Feedback", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "Popup", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "CameraPreview", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "ProgressPath", Icon = "icon.png" });
 
         }
 
@@ -65,9 +66,13 @@ namespace SampleApp.MVVMLight.ViewModels
                         case "Popup":
                             NavigationService.NavigateTo(PageKeys.BottomSheetPageURI);
                             break;
-                        
+
                         case "CameraPreview":
                             NavigationService.NavigateTo(PageKeys.CameraPreviewPageURI);
+                            break;
+
+                        case "ProgressPath":
+                            NavigationService.NavigateTo(PageKeys.ProgressPathViewPageURI);
                             break;
                     }
                 }
