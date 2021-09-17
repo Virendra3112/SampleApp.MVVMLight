@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleApp.MVVMLight.Views.VideoPlayerView">
+             x:Class="SampleApp.MVVMLight.Views.VideoPlayerView" NavigationPage.HasNavigationBar="False"
+             xmlns:o="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <o:VideoPlayer x:Name="videoPlayer" Source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" AutoPlay="True" />
+        <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     Padding="0" Margin="0" Spacing="0" BackgroundColor="Pink">
+            <o:VideoPlayer BackgroundColor="Yellow"
+                Source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" 
+                AutoPlay="True"
+                DisplayControls="True"
+                FillMode="Resize"/>
+
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
