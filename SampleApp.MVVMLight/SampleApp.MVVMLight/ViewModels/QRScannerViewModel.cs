@@ -2,5 +2,9 @@
 {
     public class QRScannerViewModel : BaseViewModel
     {
+        public QRScannerViewModel()
+        {
+
+        }
     }
 }
