@@ -5,6 +5,7 @@ using Android.OS;
 using Android.App;
 using Android.Widget;
 using Android.Content.PM;
+using System.Threading.Tasks;
 
 namespace SampleApp.MVVMLight.Droid
 {
@@ -38,8 +39,9 @@ namespace SampleApp.MVVMLight.Droid
                     .Commit();
             }
 
-            if (!needsPermissionRequest)
-                scan();
+            //if (!needsPermissionRequest)
+            ScanAsync();
+            //scan();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
@@ -59,7 +61,7 @@ namespace SampleApp.MVVMLight.Droid
             var opts = new MobileBarcodeScanningOptions
             {
                 PossibleFormats = new List<ZXing.BarcodeFormat> {
-                    ZXing.BarcodeFormat.QR_CODE
+                    ZXing.BarcodeFormat.QR_CODE,
                 },
                 CameraResolutionSelector = availableResolutions =>
                 {
@@ -86,5 +88,20 @@ namespace SampleApp.MVVMLight.Droid
             }, opts);
         }
 
+        public async Task ScanAsync()
+        {
+            var optionsDefault = new MobileBarcodeScanningOptions();
+            var optionsCustom = new MobileBarcodeScanningOptions();
+
+            var scanner = new MobileBarcodeScanner()
+            {
+                TopText = "Scan the QR Code",
+                BottomText = "Please Wait",
+            };
+
+            var scanResult = await scanner.Scan(optionsCustom);
+
+            Toast.MakeText(this, "***" + scanResult.Text, ToastLength.Long).Show();
+        }
     }
 }
