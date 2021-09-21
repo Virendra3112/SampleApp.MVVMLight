@@ -40,6 +40,9 @@ namespace SampleApp.MVVMLight.Droid
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             var ignore = typeof(SvgCachedImage);
 
+            // This line is leveraging the android-specific implementation
+            ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+
             AndroidBootstrapper.Initialize();
 
             CachedImageRenderer.Init(true);
