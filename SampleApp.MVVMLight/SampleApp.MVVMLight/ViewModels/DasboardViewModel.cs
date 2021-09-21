@@ -78,7 +78,8 @@ namespace SampleApp.MVVMLight.ViewModels
 
                         case "QRScannerView":
                             //NavigationService.NavigateTo(PageKeys.QRScannerViewURI);
-                            DependencyService.Get<IOpenScannerPage>().OpenScanner();
+                            //DependencyService.Get<IOpenScannerPage>().OpenScanner();
+                            var result = await DependencyService.Get<IOpenScannerPage>().ScanAsync();// OpenScanner();
                             break;
                     }
                 }
