@@ -34,6 +34,7 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList.Add(new MenuModel { PageName = "ProgressPath", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "VideoView", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "QRScannerView", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "QRScannerView2", Icon = "icon.png" });
         }
 
         private async void MenuSelected(object obj)
@@ -80,6 +81,10 @@ namespace SampleApp.MVVMLight.ViewModels
                             //NavigationService.NavigateTo(PageKeys.QRScannerViewURI);
                             //DependencyService.Get<IOpenScannerPage>().OpenScanner();
                             var result = await DependencyService.Get<IOpenScannerPage>().ScanAsync();// OpenScanner();
+                            break;
+
+                        case "QRScannerView2":
+                            NavigationService.NavigateTo(PageKeys.QRScannerViewURI);
                             break;
                     }
                 }
