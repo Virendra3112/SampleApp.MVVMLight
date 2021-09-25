@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SampleApp.MVVMLight.ViewModels
@@ -35,6 +36,30 @@ namespace SampleApp.MVVMLight.ViewModels
         public QRScannerViewModel()
         {
 
+        }
+
+        private async void CheckPermission()
+        {
+            try
+            {
+                var status = await Permissions.RequestAsync<Permissions.Camera>();
+
+                if (status != PermissionStatus.Granted)
+                {
+                    IsScanning = false;
+
+                    await UserDialogs.Instance.AlertAsync("Error",
+                        "Camera permission is required for QR scanner.", "OK");
+                }
+                else
+                {
+                    IsScanning = true;
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
     }
 }
