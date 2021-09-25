@@ -1,9 +1,11 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using Acr.UserDialogs;
+using Rg.Plugins.Popup.Services;
 using SampleApp.MVVMLight.CustomControls;
 using SampleApp.MVVMLight.Helpers;
 using SampleApp.MVVMLight.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SampleApp.MVVMLight.ViewModels
@@ -84,7 +86,19 @@ namespace SampleApp.MVVMLight.ViewModels
                             break;
 
                         case "QRScannerView2":
-                            NavigationService.NavigateTo(PageKeys.QRScannerViewURI);
+                            {
+                                var status = await Permissions.RequestAsync<Permissions.Camera>();
+
+                                if (status != PermissionStatus.Granted)
+                                {
+                                    await UserDialogs.Instance.AlertAsync(
+                                        "Camera permission is required for QR scanner.", "", "OK");
+                                }
+                                else
+                                {
+                                    NavigationService.NavigateTo(PageKeys.QRScannerViewURI);
+                                }
+                            }
                             break;
                     }
                 }
