@@ -4,7 +4,11 @@ using System.Text;
 
 namespace SampleApp.MVVMLight.ViewModels
 {
-    class VideoPlayerViewTwoModel
+    public class VideoPlayerViewTwoModel : BaseViewModel
     {
+        public VideoPlayerViewTwoModel()
+        {
+
+        }
     }
 }
