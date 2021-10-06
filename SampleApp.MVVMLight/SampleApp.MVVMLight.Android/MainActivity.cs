@@ -10,6 +10,7 @@ using System;
 using FFImageLoading.Forms.Platform;
 using FFImageLoading.Svg.Forms;
 using Octane.Xamarin.Forms.VideoPlayer.Android;
+using MediaManager;
 
 namespace SampleApp.MVVMLight.Droid
 {
@@ -55,6 +56,8 @@ namespace SampleApp.MVVMLight.Droid
 
             Console.WriteLine("******** Hash " + Value);
             FormsVideoPlayer.Init();
+
+            CrossMediaManager.Current.Init(this);
 
             LoadApplication(new App());
         }
