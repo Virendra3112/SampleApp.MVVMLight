@@ -37,6 +37,7 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList.Add(new MenuModel { PageName = "VideoView", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "QRScannerView", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "QRScannerView2", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "VideoView2", Icon = "icon.png" });
         }
 
         private async void MenuSelected(object obj)
@@ -100,6 +101,11 @@ namespace SampleApp.MVVMLight.ViewModels
                                 }
                             }
                             break;
+
+                        case "VideoView2":
+                            //NavigationService.NavigateTo(PageKeys.VideoViewURI);
+                            break;
+
                     }
                 }
 

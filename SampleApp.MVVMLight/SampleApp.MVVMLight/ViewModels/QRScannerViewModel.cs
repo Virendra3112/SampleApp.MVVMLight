@@ -56,7 +56,7 @@ namespace SampleApp.MVVMLight.ViewModels
                     IsScanning = true;
                 }
             }
-            catch(Exception ex)
+            catch (System.Exception ex)
             {
 
             }
