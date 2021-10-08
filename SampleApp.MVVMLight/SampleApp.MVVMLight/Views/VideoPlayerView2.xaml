@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:mm="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
              x:Class="SampleApp.MVVMLight.Views.VideoPlayerView2">
     <ContentPage.Content>
-        <StackLayout>
+        <!--<StackLayout>
             <mm:VideoView VerticalOptions="FillAndExpand" Source="https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4" />
 
+        </StackLayout>-->
+        <StackLayout>
+            <mm:VideoView VerticalOptions="FillAndExpand" Source="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" ShowControls="False" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
