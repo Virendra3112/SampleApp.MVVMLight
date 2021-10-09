@@ -36,6 +36,7 @@ namespace SampleApp.MVVMLight.Helpers
             navigationService.Configure(PageKeys.CameraPreviewPageURI, typeof(HalfScreenCameraView));
             navigationService.Configure(PageKeys.ProgressPathViewPageURI, typeof(ProgressPathView));
             navigationService.Configure(PageKeys.VideoViewURI, typeof(VideoPlayerView));
+            navigationService.Configure(PageKeys.VideoView2URI, typeof(VideoPlayerView2));
             navigationService.Configure(PageKeys.QRScannerViewURI, typeof(QRScannerView));
 
             return navigationService;

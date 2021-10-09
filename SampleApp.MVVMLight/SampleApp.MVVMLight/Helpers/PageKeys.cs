@@ -15,5 +15,6 @@ namespace SampleApp.MVVMLight.Helpers
         public const string ProgressPathViewPageURI = nameof(ProgressPathView);
         public const string VideoViewURI = nameof(VideoPlayerView);
         public const string QRScannerViewURI = nameof(QRScannerView);
+        public const string VideoView2URI = nameof(VideoPlayerView2);
     }
 }
