@@ -103,7 +103,7 @@ namespace SampleApp.MVVMLight.ViewModels
                             break;
 
                         case "VideoView2":
-                            //NavigationService.NavigateTo(PageKeys.VideoViewURI);
+                            NavigationService.NavigateTo(PageKeys.VideoView2URI);
                             break;
 
                     }
