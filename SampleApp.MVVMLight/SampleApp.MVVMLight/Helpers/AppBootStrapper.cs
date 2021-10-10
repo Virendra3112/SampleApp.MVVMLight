@@ -38,6 +38,7 @@ namespace SampleApp.MVVMLight.Helpers
             navigationService.Configure(PageKeys.VideoViewURI, typeof(VideoPlayerView));
             navigationService.Configure(PageKeys.VideoView2URI, typeof(VideoPlayerView2));
             navigationService.Configure(PageKeys.QRScannerViewURI, typeof(QRScannerView));
+            navigationService.Configure(PageKeys.PaytmPaymentViewURI, typeof(PaytmDemoView));
 
             return navigationService;
         }

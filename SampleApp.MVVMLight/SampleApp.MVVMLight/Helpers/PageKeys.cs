@@ -16,5 +16,6 @@ namespace SampleApp.MVVMLight.Helpers
         public const string VideoViewURI = nameof(VideoPlayerView);
         public const string QRScannerViewURI = nameof(QRScannerView);
         public const string VideoView2URI = nameof(VideoPlayerView2);
+        public const string PaytmPaymentViewURI = nameof(PaytmDemoView);
     }
 }
