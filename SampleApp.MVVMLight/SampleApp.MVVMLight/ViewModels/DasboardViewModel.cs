@@ -12,7 +12,6 @@ namespace SampleApp.MVVMLight.ViewModels
 {
     public class DasboardViewModel : BaseViewModel
     {
-
         private ObservableCollection<MenuModel> _categoryList;
         public ObservableCollection<MenuModel> CategoryList
         {
@@ -38,6 +37,7 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList.Add(new MenuModel { PageName = "QRScannerView", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "QRScannerView2", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "VideoView2", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "PaytmPaymentDemo", Icon = "icon.png" });
         }
 
         private async void MenuSelected(object obj)
@@ -104,6 +104,10 @@ namespace SampleApp.MVVMLight.ViewModels
 
                         case "VideoView2":
                             NavigationService.NavigateTo(PageKeys.VideoView2URI);
+                            break;
+
+                        case "PaytmPaymentDemo":
+                            NavigationService.NavigateTo(PageKeys.PaytmPaymentViewURI);
                             break;
 
                     }
