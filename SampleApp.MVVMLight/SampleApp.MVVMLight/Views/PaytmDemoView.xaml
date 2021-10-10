@@ -4,7 +4,7 @@
              x:Class="SampleApp.MVVMLight.Views.PaytmDemoView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Button Text="Pay Now" Command="{Binding PayNowCommand}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
