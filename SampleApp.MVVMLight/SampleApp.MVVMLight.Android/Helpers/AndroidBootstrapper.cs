@@ -1,10 +1,5 @@
-﻿using Android.App;
-using Android.Gms.Auth.Api.Phone;
-using Android.Gms.Tasks;
-using Autofac;
-using Java.Interop;
+﻿using Autofac;
 using SampleApp.MVVMLight.Helpers;
-using System;
 
 namespace SampleApp.MVVMLight.Droid.Helpers
 {
