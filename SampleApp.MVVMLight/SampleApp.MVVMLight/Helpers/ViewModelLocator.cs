@@ -60,5 +60,17 @@ namespace SampleApp.MVVMLight.Helpers
                 return SimpleIoc.Default.GetInstance<CustomPopupViewModel>();
             }
         }
+
+        public ConnectToWiFiPageViewModel ConnectToWiFiPageViewModel
+        {
+            get
+            {
+                if (!SimpleIoc.Default.IsRegistered<ConnectToWiFiPageViewModel>())
+                {
+                    SimpleIoc.Default.Register<ConnectToWiFiPageViewModel>();
+                }
+                return SimpleIoc.Default.GetInstance<ConnectToWiFiPageViewModel>();
+            }
+        }
     }
 }
