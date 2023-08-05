@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Name="self" Title="Dashboard Page"
-             x:Class="SampleApp.MVVMLight.Views.DasboardView">
+             x:Class="SampleApp.MVVMLight.Views.DasboardView"
+             xmlns:local="clr-namespace:SampleApp.MVVMLight.CustomControls" >
     <ContentPage.Content>
         <Grid RowSpacing="0" BackgroundColor="Transparent" >
             <Grid.RowDefinitions>
@@ -16,6 +17,7 @@
                 <!--<Label Text="{x:Static resource:AppResource.ThemeText}" TextColor="{DynamicResource TextPrimaryColor}" FontSize="Small" Padding="5"/>
                 <Switch HorizontalOptions="Start" VerticalOptions="Start" IsToggled="{Binding SetDarkMode, Source={x:Reference self}}"/>-->
 
+                <local:CustomLabel x:Name="customLabel"/>
             </StackLayout>
 
 

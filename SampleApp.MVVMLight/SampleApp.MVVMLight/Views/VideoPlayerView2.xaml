@@ -7,8 +7,16 @@
             <mm:VideoView VerticalOptions="FillAndExpand" Source="https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4" />
 
         </StackLayout>-->
+        <!--<StackLayout>
+            <mm:VideoView x:Name="VideoView" BackgroundColor="LightBlue" VerticalOptions="FillAndExpand" AutoPlay="True" Source="ms-appx:///big_buck_bunny.mp4" ShowControls="True" />
+        </StackLayout>-->
+
         <StackLayout>
-            <mm:VideoView VerticalOptions="FillAndExpand" Source="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" ShowControls="False" />
+            <mm:VideoView x:Name="MyVideoView" ShowControls="True"
+                         WidthRequest="320"
+                         HeightRequest="190" />
+            <Button Text="Play" Clicked="BtnPlayVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
+            <Button Text="Stop" Clicked="BtnStopVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

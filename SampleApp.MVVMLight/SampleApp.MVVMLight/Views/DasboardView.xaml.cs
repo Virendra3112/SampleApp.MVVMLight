@@ -25,6 +25,9 @@ namespace SampleApp.MVVMLight.Views
             FloatingContentView box = new FloatingContentView();
             box.Content = label;
 
+            //customLabel.Text = "<p>Hello<br/><b>Demo Test</b><br> <b>This is second</b><br/><font color='red'>This is some text!</font></p>";
+            //customLabel.Text = "<p>test first line thbekgjrej</br></br><b>this is bold </b></ p>";
+
             //container.Children.Add(box);
         }
 

@@ -39,6 +39,7 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList.Add(new MenuModel { PageName = "VideoView2", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "PaytmPaymentDemo", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "ChatDemoUI", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "ConnectToWiFi", Icon = "icon.png" });
         }
 
         private async void MenuSelected(object obj)
@@ -107,13 +108,19 @@ namespace SampleApp.MVVMLight.ViewModels
                             NavigationService.NavigateTo(PageKeys.VideoView2URI);
                             break;
 
-                        case "PaytmPaymentDemo":
-                            NavigationService.NavigateTo(PageKeys.PaytmPaymentViewURI);
-                            break; 
-                        
+                        //case "PaytmPaymentDemo":
+                        //    NavigationService.NavigateTo(PageKeys.PaytmPaymentViewURI);
+                        //    break; 
+
                         //case "ChatDemoUI":
                         //    NavigationService.NavigateTo(PageKeys.PaytmPaymentViewURI);
-                        //    break;
+                        //    break; 
+
+                        case "ConnectToWiFi":
+                            NavigationService.NavigateTo(PageKeys.PaytmPaymentViewURI);
+                            break;
+
+
 
                     }
                 }

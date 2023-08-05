@@ -74,7 +74,7 @@
       <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Plugin.MediaManager.Forms">
-      <Version>1.0.9</Version>
+      <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>2.0.0.12</Version>
@@ -107,6 +107,7 @@
     <Compile Include="CustomRendrers\CameraPreviewRenderer.cs" />
     <Compile Include="CustomRendrers\CustomRoundedEntryRenderer.cs" />
     <Compile Include="CustomRendrers\EntryValidationBorder.cs" />
+    <Compile Include="CustomRendrers\HtmlFormattedLabelRenderer.cs" />
     <Compile Include="CustomRendrers\OpenScannerPageAndroid.cs" />
     <Compile Include="FragmentActivity.cs" />
     <Compile Include="Helpers\AndroidBootstrapper.cs" />
@@ -183,6 +184,9 @@
     <AndroidResource Include="Resources\layout\qrfragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\big_buck_bunny.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
