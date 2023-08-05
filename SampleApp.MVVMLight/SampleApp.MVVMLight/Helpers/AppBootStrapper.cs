@@ -39,6 +39,7 @@ namespace SampleApp.MVVMLight.Helpers
                 navigationService.Configure(PageKeys.VideoView2URI, typeof(VideoPlayerView2));
                 navigationService.Configure(PageKeys.QRScannerViewURI, typeof(QRScannerView));
                 navigationService.Configure(PageKeys.PaytmPaymentViewURI, typeof(PaytmDemoView));
+                navigationService.Configure(PageKeys.ConnectToWiFiPageURI, typeof(ConnectToWiFiPage));
 
                 return navigationService;
             }

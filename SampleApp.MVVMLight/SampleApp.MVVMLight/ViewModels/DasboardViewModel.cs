@@ -117,7 +117,7 @@ namespace SampleApp.MVVMLight.ViewModels
                         //    break; 
 
                         case "ConnectToWiFi":
-                            NavigationService.NavigateTo(PageKeys.PaytmPaymentViewURI);
+                            NavigationService.NavigateTo(PageKeys.ConnectToWiFiPageURI);
                             break;
 
 
