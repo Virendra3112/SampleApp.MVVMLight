@@ -1,7 +1,12 @@
-﻿namespace SampleApp.MVVMLight.Helpers
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace SampleApp.MVVMLight.Helpers
 {
     public interface IWifiConnector
     {
         void ConnectToWifi(string ssid, string password);
+        Task<IEnumerable<string>> GetAvailableNetworksAsync();
+
     }
 }
