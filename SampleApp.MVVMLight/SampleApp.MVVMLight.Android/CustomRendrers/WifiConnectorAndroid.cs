@@ -2,7 +2,10 @@
 using Android.Net;
 using Android.Net.Wifi;
 using SampleApp.MVVMLight.Droid.CustomRendrers;
+using SampleApp.MVVMLight.Droid.Helpers;
 using SampleApp.MVVMLight.Helpers;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(WifiConnectorAndroid))]
@@ -38,6 +41,24 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
             ConnectivityManager connectivityManager =
                 (ConnectivityManager)Android.App.Application.Context.GetSystemService(Context.ConnectivityService);
             connectivityManager.RequestNetwork(networkRequest, new ConnectivityManager.NetworkCallback());
+        }
+
+        public async Task<IEnumerable<string>> GetAvailableNetworksAsync()
+        {
+            IEnumerable<string> availableNetworks = null;
+
+            // Get a handle to the Wifi
+            var wifiMgr = (WifiManager)Android.App.Application.Context.GetSystemService(Context.WifiService);
+            var wifiReceiver = new WifiReceiver(wifiMgr);
+
+            await Task.Run(() =>
+            {
+                // Start a scan and register the Broadcast receiver to get the list of Wifi Networks
+                Android.App.Application.Context.RegisterReceiver(wifiReceiver, new IntentFilter(WifiManager.ScanResultsAvailableAction));
+                availableNetworks = wifiReceiver.Scan();
+            });
+
+            return availableNetworks;
         }
     }
 }
