@@ -1,6 +1,7 @@
 ﻿using SampleApp.MVVMLight.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,24 @@ namespace SampleApp.MVVMLight.ViewModels
             get { return _wifiPassword; }
             set { _wifiPassword = value; OnPropertyChanged(); }
         }
+
+
+        private ObservableCollection<string> _wifiList;
+        public ObservableCollection<string> WifiList
+        {
+            get
+            {
+                return _wifiList;
+            }
+            set
+            {
+                if (_wifiList != value)
+                {
+                    _wifiList = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public ConnectToWiFiPageViewModel()
         {
             //ConnectToWifi();
@@ -34,6 +53,16 @@ namespace SampleApp.MVVMLight.ViewModels
                 var wifiConnector = Xamarin.Forms.DependencyService.Get<IWifiConnector>();
 
                 var result = await wifiConnector.GetAvailableNetworksAsync();
+
+                if (result != null)
+                {
+                    WifiList = new ObservableCollection<string>();
+                    foreach (var item in result)
+                    {
+                        if (item != null)
+                            WifiList.Add(item);
+                    }
+                }
             }
             catch (Exception ex)
             {
