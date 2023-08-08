@@ -4,12 +4,73 @@
              x:Class="SampleApp.MVVMLight.Views.ConnectToWiFiPage"
              BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        
+        <AbsoluteLayout>
+
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+
+                <StackLayout BindableLayout.ItemsSource="{Binding WifiList}"
+             Orientation="Vertical">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                               IsClippedToBounds="False" HasShadow="False" Padding="0" Margin="0" >
+                                <Grid RowSpacing="0" ColumnSpacing="0"
+                                  Padding="0" Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <BoxView Grid.RowSpan="2" Grid.Column="0" BackgroundColor="Red" Margin="0"
+                                        HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" />
+
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Title}" Padding="10,0,0,0" Margin="0"
+                                       TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Body}" Padding="10,0,0,0" Margin="0"
+                                       TextColor="Black" FontSize="Medium" />
+
+                                    <!--<Label Grid.Row="1" Grid.Column="2" Text="9:30 PM" Padding="10,0,0,0"
+                                       HorizontalOptions="EndAndExpand" TextColor="Black" FontSize="Medium" />-->
+
+
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </StackLayout>
+
+            <!--<StackLayout>
             <Label Text="Wifi Status:" TextColor="Black" />
             <Label Text="{Binding WifiStatus}" />
 
             <Entry Text="{Binding WifiPassword}"/>
+            
+            
 
-        </StackLayout>
+        </StackLayout>-->
+
+            <ContentView AbsoluteLayout.LayoutBounds="0.5,0.5,500,500" AbsoluteLayout.LayoutFlags="PositionProportional"
+                         IsVisible="{Binding IsPopupVisible}">
+
+                <StackLayout >
+                    <Label Text="Enter Password" TextColor="Black"/>
+                    <Entry Text="{Binding Password}" TextColor="Black"/>
+                </StackLayout>
+                
+            </ContentView>
+
+
+        </AbsoluteLayout>
+
     </ContentPage.Content>
 </ContentPage>
