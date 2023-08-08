@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SampleApp.MVVMLight.ViewModels
 {
@@ -47,10 +49,18 @@ namespace SampleApp.MVVMLight.ViewModels
                 }
             }
         }
+
+        public ICommand WifiItemSelectedCommand { get; set; }
         public ConnectToWiFiPageViewModel()
         {
+            WifiItemSelectedCommand = new Command(OnItemSelected);
             //ConnectToWifi();
             GetAvailableNetworksAsync();
+        }
+
+        private void OnItemSelected(object obj)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task GetAvailableNetworksAsync()
