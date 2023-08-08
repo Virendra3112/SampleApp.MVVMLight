@@ -4,7 +4,7 @@
              x:Class="SampleApp.MVVMLight.Views.ConnectToWiFiPage"
              BackgroundColor="White">
     <ContentPage.Content>
-        
+
         <AbsoluteLayout>
 
 
@@ -38,11 +38,10 @@
                                     <Label Grid.Row="1" Grid.Column="1" Text="{Binding Body}" Padding="10,0,0,0" Margin="0"
                                        TextColor="Black" FontSize="Medium" />
 
-                                    <!--<Label Grid.Row="1" Grid.Column="2" Text="9:30 PM" Padding="10,0,0,0"
-                                       HorizontalOptions="EndAndExpand" TextColor="Black" FontSize="Medium" />-->
-
-
                                 </Grid>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WifiItemSelectedCommand}" />
+                                </Frame.GestureRecognizers>
                             </Frame>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
@@ -64,9 +63,9 @@
 
                 <StackLayout >
                     <Label Text="Enter Password" TextColor="Black"/>
-                    <Entry Text="{Binding Password}" TextColor="Black"/>
+                    <Entry Text="{Binding WifiPassword}" TextColor="Black"/>
                 </StackLayout>
-                
+
             </ContentView>
 
 
