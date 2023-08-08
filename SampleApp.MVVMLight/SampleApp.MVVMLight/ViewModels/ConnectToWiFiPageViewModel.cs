@@ -23,6 +23,13 @@ namespace SampleApp.MVVMLight.ViewModels
             set { _wifiPassword = value; OnPropertyChanged(); }
         }
 
+        private bool _isPopupVisible;
+        public bool IsPopupVisible
+        {
+            get { return _isPopupVisible; }
+            set { _isPopupVisible = value; OnPropertyChanged(); }
+        }
+
 
         private ObservableCollection<string> _wifiList;
         public ObservableCollection<string> WifiList
