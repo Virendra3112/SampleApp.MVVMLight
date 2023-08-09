@@ -13,6 +13,8 @@ using System.Threading;
 
 namespace SampleApp.MVVMLight.Droid.Helpers
 {
+    [BroadcastReceiver(Enabled = true, Exported = true)]
+    //[IntentFilter(new[] { wifi.SmsRetrievedAction })]
     public class WifiReceiver : BroadcastReceiver
     {
         private WifiManager wifi;
