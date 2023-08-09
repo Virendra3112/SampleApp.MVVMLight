@@ -40,7 +40,7 @@
 
                                 </Grid>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding WifiItemSelectedCommand}" />
+                                    <TapGestureRecognizer Command="{Binding WifiItemSelectedCommand}" CommandParameter="{Binding .}" />
                                 </Frame.GestureRecognizers>
                             </Frame>
                         </DataTemplate>
