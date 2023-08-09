@@ -50,24 +50,24 @@ namespace SampleApp.MVVMLight.ViewModels
             }
         }
 
+        public ICommand GetAvailableNetworksCommand { get; set; }
         public ICommand WifiItemSelectedCommand { get; set; }
         public ConnectToWiFiPageViewModel()
         {
+            GetAvailableNetworksCommand = new Command(async () => await GetAvailableNetworksAsync());
+
             WifiItemSelectedCommand = new Command(OnItemSelected);
-            //ConnectToWifi();
-            GetAvailableNetworksAsync();
+            IsPopupVisible = false;
+
+            GetAvailableNetworksCommand.Execute(null);
         }
 
-        private void OnItemSelected(object obj)
-        {
-            throw new NotImplementedException();
-        }
 
         private async Task GetAvailableNetworksAsync()
         {
             try
             {
-                var wifiConnector = Xamarin.Forms.DependencyService.Get<IWifiConnector>();
+                var wifiConnector = DependencyService.Get<IWifiConnector>();
 
                 var result = await wifiConnector.GetAvailableNetworksAsync();
 
@@ -87,13 +87,29 @@ namespace SampleApp.MVVMLight.ViewModels
             }
         }
 
-        private void ConnectToWifi()
+
+        private void OnItemSelected(object obj)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void ConnectToWifi(string ssid, string password)
         {
             try
             {
                 var wifiConnector = Xamarin.Forms.DependencyService.Get<IWifiConnector>();
 
-                wifiConnector.ConnectToWifi("", "");
+                if (!string.IsNullOrEmpty(ssid) && !string.IsNullOrEmpty(password))
+                {
+                    wifiConnector.ConnectToWifi(ssid, password);
+                }
             }
             catch (Exception ex)
             {
