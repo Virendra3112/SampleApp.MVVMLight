@@ -60,5 +60,31 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 
             return availableNetworks;
         }
+
+
+        private Context context = null;
+
+        public WifiConnectorAndroid()
+        {
+            this.context = Android.App.Application.Context;
+        }
+
+        public async Task<IEnumerable<string>> GetAvailableNetworksAsync2()
+        {
+            IEnumerable<string> availableNetworks = null;
+
+            // Get a handle to the Wifi
+            var wifiMgr = (WifiManager)context.GetSystemService(Context.WifiService);
+            var wifiReceiver = new WifiReceiver(wifiMgr);
+
+            await Task.Run(() =>
+            {
+                // Start a scan and register the Broadcast receiver to get the list of Wifi Networks
+                context.RegisterReceiver(wifiReceiver, new IntentFilter(WifiManager.ScanResultsAvailableAction));
+                availableNetworks = wifiReceiver.Scan();
+            });
+
+            return availableNetworks;
+        }
     }
 }
