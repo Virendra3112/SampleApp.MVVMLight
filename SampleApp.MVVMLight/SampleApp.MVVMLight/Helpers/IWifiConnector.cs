@@ -7,6 +7,7 @@ namespace SampleApp.MVVMLight.Helpers
     {
         void ConnectToWifi(string ssid, string password);
         Task<IEnumerable<string>> GetAvailableNetworksAsync();
+        Task<IEnumerable<string>> GetAvailableNetworksAsync2();
 
     }
 }
