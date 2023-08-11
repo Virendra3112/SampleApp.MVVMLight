@@ -11,12 +11,25 @@ using FFImageLoading.Forms.Platform;
 using FFImageLoading.Svg.Forms;
 using Octane.Xamarin.Forms.VideoPlayer.Android;
 using MediaManager;
+using Android.Net;
 
 namespace SampleApp.MVVMLight.Droid
 {
     [Activity(Label = "SampleApp.MVVMLight", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+            NetworkRequest request = new NetworkRequest.Builder().AddTransportType(transportType: TransportType.Wifi).Build();
+            ConnectivityManager connectivityManager = Android.App.Application.Context.GetSystemService(Context.ConnectivityService) as ConnectivityManager;
+
+            //var flagIncludeLocationInfo = NetworkCallbackFlags.IncludeLocationInfo;
+            //NetworkCallback networkCallback = new NetworkCallback((int)flagIncludeLocationInfo);
+            //connectivityManager.RequestNetwork(request, networkCallback);
+
+        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
