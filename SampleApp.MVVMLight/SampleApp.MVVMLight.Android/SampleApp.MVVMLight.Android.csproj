@@ -119,6 +119,7 @@
     <Compile Include="Helpers\CameraFragment.cs" />
     <Compile Include="Helpers\CameraStateListener.cs" />
     <Compile Include="Helpers\ListenToSms.cs" />
+    <Compile Include="Helpers\NetworkCallback.cs" />
     <Compile Include="Helpers\NotificationOperations.cs" />
     <Compile Include="Helpers\OrientationHandler.cs" />
     <Compile Include="Helpers\SmsReceiver.cs" />
