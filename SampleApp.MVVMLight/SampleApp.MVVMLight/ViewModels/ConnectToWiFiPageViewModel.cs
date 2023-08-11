@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -54,7 +52,7 @@ namespace SampleApp.MVVMLight.ViewModels
         public ICommand WifiItemSelectedCommand { get; set; }
         public ConnectToWiFiPageViewModel()
         {
-            GetAvailableNetworksCommand = new Command(async () => await GetAvailableNetworksAsync());
+            GetAvailableNetworksCommand = new Command(() => GetAvailableNetworksAsync());
 
             WifiItemSelectedCommand = new Command(OnItemSelected);
             IsPopupVisible = false;
@@ -63,23 +61,44 @@ namespace SampleApp.MVVMLight.ViewModels
         }
 
 
-        private async Task GetAvailableNetworksAsync()
+        private void GetAvailableNetworksAsync()
         {
             try
             {
-                var wifiConnector = DependencyService.Get<IWifiConnector>();
-
-                var result = await wifiConnector.GetAvailableNetworksAsync();
-
-                if (result != null)
+                Device.StartTimer(new TimeSpan(0, 0, 60), () =>
                 {
-                    WifiList = new ObservableCollection<string>();
-                    foreach (var item in result)
+                    // do something every 60 seconds
+                    Device.BeginInvokeOnMainThread(async () =>
                     {
-                        if (item != null)
-                            WifiList.Add(item);
-                    }
-                }
+                        IEnumerable<string> _wifiService = null;
+                        _wifiService = await DependencyService.Get<IWifiConnector>()
+                         .GetAvailableNetworksAsync2();
+
+                        WifiList = new ObservableCollection<string>();
+                        foreach (var item in _wifiService)
+                        {
+                            if (item != null)
+                                WifiList.Add(item);
+                        }
+                    });
+                    return true; // runs again, or false to stop
+                });
+
+
+
+                //var wifiConnector = DependencyService.Get<IWifiConnector>();
+
+                //var result = await wifiConnector.GetAvailableNetworksAsync2();
+
+                //if (result != null)
+                //{
+                //    WifiList = new ObservableCollection<string>();
+                //    foreach (var item in result)
+                //    {
+                //        if (item != null)
+                //            WifiList.Add(item);
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -92,6 +111,8 @@ namespace SampleApp.MVVMLight.ViewModels
         {
             try
             {
+                var data = obj as string;
+
 
             }
             catch (Exception ex)
