@@ -12,6 +12,7 @@ using FFImageLoading.Svg.Forms;
 using Octane.Xamarin.Forms.VideoPlayer.Android;
 using MediaManager;
 using Android.Net;
+using Android.Content;
 
 namespace SampleApp.MVVMLight.Droid
 {
@@ -25,7 +26,7 @@ namespace SampleApp.MVVMLight.Droid
             NetworkRequest request = new NetworkRequest.Builder().AddTransportType(transportType: TransportType.Wifi).Build();
             ConnectivityManager connectivityManager = Android.App.Application.Context.GetSystemService(Context.ConnectivityService) as ConnectivityManager;
 
-            //var flagIncludeLocationInfo = NetworkCallbackFlags.IncludeLocationInfo;
+            //var flagIncludeLocationInfo = ConnectivityManager.NetworkCallbackFlags.IncludeLocationInfo;
             //NetworkCallback networkCallback = new NetworkCallback((int)flagIncludeLocationInfo);
             //connectivityManager.RequestNetwork(request, networkCallback);
 
