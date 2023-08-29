@@ -107,6 +107,7 @@
     <Compile Include="CustomRendrers\CameraPreviewRenderer.cs" />
     <Compile Include="CustomRendrers\CustomRoundedEntryRenderer.cs" />
     <Compile Include="CustomRendrers\EntryValidationBorder.cs" />
+    <Compile Include="CustomRendrers\ExtendedTabbedPageRenderer.cs" />
     <Compile Include="CustomRendrers\HtmlFormattedLabelRenderer.cs" />
     <Compile Include="CustomRendrers\OpenScannerPageAndroid.cs" />
     <Compile Include="CustomRendrers\WifiConnectorAndroid.cs" />
