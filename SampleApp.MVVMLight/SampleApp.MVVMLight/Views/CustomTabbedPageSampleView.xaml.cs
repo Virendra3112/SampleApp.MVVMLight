@@ -1,10 +1,6 @@
 ﻿using CommonServiceLocator;
+using SampleApp.MVVMLight.CustomControls;
 using SampleApp.MVVMLight.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,7 +8,7 @@ using Xamarin.Forms.Xaml;
 namespace SampleApp.MVVMLight.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomTabbedPageSampleView : ContentPage
+    public partial class CustomTabbedPageSampleView : ExtendedTabbedPage
     {
         private CustomTabbedPageSampleViewModel CustomTabbedPageSampleViewModel
         {
@@ -25,6 +21,11 @@ namespace SampleApp.MVVMLight.Views
         {
             InitializeComponent();
             BindingContext = CustomTabbedPageSampleViewModel;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
         }
     }
 }
