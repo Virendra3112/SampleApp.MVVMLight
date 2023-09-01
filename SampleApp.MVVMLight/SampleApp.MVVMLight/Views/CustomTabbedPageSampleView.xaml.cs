@@ -21,11 +21,30 @@ namespace SampleApp.MVVMLight.Views
         {
             InitializeComponent();
             BindingContext = CustomTabbedPageSampleViewModel;
+
+            this.SelectedItem = this.Children[0];
+
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+        }
+
+        protected override void OnCurrentPageChanged()
+        {
+            base.OnCurrentPageChanged();
+
+            //ToDo
+            //if (CurrentPage.Title == "App")
+            //{
+            //    //HomeTab.Icon = "app_logo.png";
+            //}
+            //else
+            //{
+            //    //HomeTab.Icon = "app_logo_unselected.png";
+            //}
+            //this.Title = CurrentPage.Title;
         }
     }
 }
