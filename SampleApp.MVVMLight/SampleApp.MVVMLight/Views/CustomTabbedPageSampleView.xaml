@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleApp.MVVMLight.Views.CustomTabbedPageSampleView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+<controls:ExtendedTabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SampleApp.MVVMLight.Views.CustomTabbedPageSampleView"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             android:TabbedPage.BarItemColor="Gray"
+             android:TabbedPage.BarSelectedItemColor="#3A326F"
+             BarBackgroundColor="Black"
+             BackgroundColor="Black"
+             BarTextColor="Gray" 
+             xmlns:controls="clr-namespace:SampleApp.MVVMLight.CustomControls">
+    <controls:ExtendedTabbedPage.Children>
+        <ContentPage Title="Home" Icon="icon.png" BackgroundColor="White"/>
+        <ContentPage Title="Second" Icon="icon.png" BackgroundColor="White"/>
+        <ContentPage Title="Third" Icon="icon.png" BackgroundColor="White"/>
+        
+    </controls:ExtendedTabbedPage.Children>
+</controls:ExtendedTabbedPage>
