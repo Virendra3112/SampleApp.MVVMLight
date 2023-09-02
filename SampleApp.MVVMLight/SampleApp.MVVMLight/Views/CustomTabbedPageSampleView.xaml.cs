@@ -35,16 +35,17 @@ namespace SampleApp.MVVMLight.Views
         {
             base.OnCurrentPageChanged();
 
-            //ToDo
-            //if (CurrentPage.Title == "App")
-            //{
-            //    //HomeTab.Icon = "app_logo.png";
-            //}
-            //else
-            //{
-            //    //HomeTab.Icon = "app_logo_unselected.png";
-            //}
-            //this.Title = CurrentPage.Title;
+            if (CurrentPage.Title == "Home")
+            {
+                //ToDo:Update icon here
+
+                //HomeTab.Icon = "app_logo.png";
+            }
+            else
+            {
+                //HomeTab.Icon = "app_logo_unselected.png";
+            }
+            this.Title = CurrentPage.Title;
         }
     }
 }
