@@ -107,6 +107,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\BadgeView.cs" />
     <Compile Include="CustomRendrers\CameraPreviewRenderer.cs" />
     <Compile Include="CustomRendrers\CustomRoundedEntryRenderer.cs" />
     <Compile Include="CustomRendrers\EntryValidationBorder.cs" />
