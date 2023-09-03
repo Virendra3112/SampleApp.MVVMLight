@@ -15,7 +15,6 @@ using System.Text;
 using Xamarin.CommunityToolkit.UI.Views;
 using Android.Graphics;
 using Android.Support.V4.View;
-
 namespace SampleApp.MVVMLight.Droid.CustomRendrers
 {
     public class BadgeView : TextView
@@ -29,7 +28,7 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
         private Context _context;
         private readonly Color _defaultBadgeColor = Color.ParseColor("#CCFF0000");
         private ShapeDrawable _backgroundShape;
-        private BadgePosition _position;
+        private SampleApp.MVVMLight.Models.BadgePosition _position;
 
 
         private int _badgeMarginL;
@@ -43,7 +42,7 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 
         public View Target { get; private set; }
 
-        public BadgePosition Postion
+        public SampleApp.MVVMLight.Models.BadgePosition Postion
         {
             get => _position;
 
@@ -250,78 +249,78 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
                 var h = targetParams.Height / 2;
 
                 layoutParameters.Gravity = GravityFlags.Center;
-                //switch (Postion)
-                //{
-                //    case BadgePosition.PositionTopLeft:
-                //        layoutParameters.SetMargins(_badgeMarginL - w, _badgeMarginT - h, 0, 0);
-                //        break;
-                //    case BadgePosition.PositionTopRight:
-                //        layoutParameters.SetMargins(0, _badgeMarginT - h, _badgeMarginR - w, 0);
-                //        break;
-                //    case BadgePosition.PositionBottomLeft:
-                //        layoutParameters.SetMargins(_badgeMarginL - w, 0, 0, 0 + _badgeMarginB - h);
-                //        break;
-                //    case BadgePosition.PositionBottomRight:
-                //        layoutParameters.SetMargins(0, 0, _badgeMarginR - w, 0 + _badgeMarginB - h);
-                //        break;
-                //    case BadgePosition.PositionCenter:
-                //        layoutParameters.SetMargins(_badgeMarginL, _badgeMarginT, _badgeMarginR, _badgeMarginB);
-                //        break;
-                //    case BadgePosition.PositionTopCenter:
-                //        layoutParameters.SetMargins(0, 0 + _badgeMarginT - h, 0, 0);
-                //        break;
-                //    case BadgePosition.PositionBottomCenter:
-                //        layoutParameters.SetMargins(0, 0, 0, 0 + _badgeMarginB - h);
-                //        break;
-                //    case BadgePosition.PositionLeftCenter:
-                //        layoutParameters.SetMargins(_badgeMarginL - w, 0, 0, 0);
-                //        break;
-                //    case BadgePosition.PositionRightCenter:
-                //        layoutParameters.SetMargins(0, 0, _badgeMarginR - w, 0);
-                //        break;
-                //}
+                switch (Postion)
+                {
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionTopLeft:
+                        layoutParameters.SetMargins(_badgeMarginL - w, _badgeMarginT - h, 0, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionTopRight:
+                        layoutParameters.SetMargins(0, _badgeMarginT - h, _badgeMarginR - w, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionBottomLeft:
+                        layoutParameters.SetMargins(_badgeMarginL - w, 0, 0, 0 + _badgeMarginB - h);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionBottomRight:
+                        layoutParameters.SetMargins(0, 0, _badgeMarginR - w, 0 + _badgeMarginB - h);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionCenter:
+                        layoutParameters.SetMargins(_badgeMarginL, _badgeMarginT, _badgeMarginR, _badgeMarginB);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionTopCenter:
+                        layoutParameters.SetMargins(0, 0 + _badgeMarginT - h, 0, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionBottomCenter:
+                        layoutParameters.SetMargins(0, 0, 0, 0 + _badgeMarginB - h);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionLeftCenter:
+                        layoutParameters.SetMargins(_badgeMarginL - w, 0, 0, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionRightCenter:
+                        layoutParameters.SetMargins(0, 0, _badgeMarginR - w, 0);
+                        break;
+                }
             }
             else
             {
-                //switch (Postion)
-                //{
-                //    case BadgePosition.PositionTopLeft:
-                //        layoutParameters.Gravity = GravityFlags.Left | GravityFlags.Top;
-                //        layoutParameters.SetMargins(_badgeMarginL, _badgeMarginT, 0, 0);
-                //        break;
-                //    case BadgePosition.PositionTopRight:
-                //        layoutParameters.Gravity = GravityFlags.Right | GravityFlags.Top;
-                //        layoutParameters.SetMargins(0, _badgeMarginT, _badgeMarginR, 0);
-                //        break;
-                //    case BadgePosition.PositionBottomLeft:
-                //        layoutParameters.Gravity = GravityFlags.Left | GravityFlags.Bottom;
-                //        layoutParameters.SetMargins(_badgeMarginL, 0, 0, _badgeMarginB);
-                //        break;
-                //    case BadgePosition.PositionBottomRight:
-                //        layoutParameters.Gravity = GravityFlags.Right | GravityFlags.Bottom;
-                //        layoutParameters.SetMargins(0, 0, _badgeMarginR, _badgeMarginB);
-                //        break;
-                //    case BadgePosition.PositionCenter:
-                //        layoutParameters.Gravity = GravityFlags.Center;
-                //        layoutParameters.SetMargins(0, 0, 0, 0);
-                //        break;
-                //    case BadgePosition.PositionTopCenter:
-                //        layoutParameters.Gravity = GravityFlags.Center | GravityFlags.Top;
-                //        layoutParameters.SetMargins(0, _badgeMarginT, 0, 0);
-                //        break;
-                //    case BadgePosition.PositionBottomCenter:
-                //        layoutParameters.Gravity = GravityFlags.Center | GravityFlags.Bottom;
-                //        layoutParameters.SetMargins(0, 0, 0, _badgeMarginB);
-                //        break;
-                //    case BadgePosition.PositionLeftCenter:
-                //        layoutParameters.Gravity = GravityFlags.Left | GravityFlags.Center;
-                //        layoutParameters.SetMargins(_badgeMarginL, 0, 0, 0);
-                //        break;
-                //    case BadgePosition.PositionRightCenter:
-                //        layoutParameters.Gravity = GravityFlags.Right | GravityFlags.Center;
-                //        layoutParameters.SetMargins(0, 0, _badgeMarginR, 0);
-                //        break;
-                //}
+                switch (Postion)
+                {
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionTopLeft:
+                        layoutParameters.Gravity = GravityFlags.Left | GravityFlags.Top;
+                        layoutParameters.SetMargins(_badgeMarginL, _badgeMarginT, 0, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionTopRight:
+                        layoutParameters.Gravity = GravityFlags.Right | GravityFlags.Top;
+                        layoutParameters.SetMargins(0, _badgeMarginT, _badgeMarginR, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionBottomLeft:
+                        layoutParameters.Gravity = GravityFlags.Left | GravityFlags.Bottom;
+                        layoutParameters.SetMargins(_badgeMarginL, 0, 0, _badgeMarginB);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionBottomRight:
+                        layoutParameters.Gravity = GravityFlags.Right | GravityFlags.Bottom;
+                        layoutParameters.SetMargins(0, 0, _badgeMarginR, _badgeMarginB);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionCenter:
+                        layoutParameters.Gravity = GravityFlags.Center;
+                        layoutParameters.SetMargins(0, 0, 0, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionTopCenter:
+                        layoutParameters.Gravity = GravityFlags.Center | GravityFlags.Top;
+                        layoutParameters.SetMargins(0, _badgeMarginT, 0, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionBottomCenter:
+                        layoutParameters.Gravity = GravityFlags.Center | GravityFlags.Bottom;
+                        layoutParameters.SetMargins(0, 0, 0, _badgeMarginB);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionLeftCenter:
+                        layoutParameters.Gravity = GravityFlags.Left | GravityFlags.Center;
+                        layoutParameters.SetMargins(_badgeMarginL, 0, 0, 0);
+                        break;
+                    case SampleApp.MVVMLight.Models.BadgePosition.PositionRightCenter:
+                        layoutParameters.Gravity = GravityFlags.Right | GravityFlags.Center;
+                        layoutParameters.SetMargins(0, 0, _badgeMarginR, 0);
+                        break;
+                }
             }
 
             LayoutParameters = layoutParameters;
