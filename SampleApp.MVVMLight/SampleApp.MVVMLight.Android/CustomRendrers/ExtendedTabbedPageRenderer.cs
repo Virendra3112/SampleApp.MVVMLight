@@ -14,6 +14,7 @@ using BottomNavigationItemView = Android.Support.Design.Internal.BottomNavigatio
 using Android.Graphics.Drawables;
 using Android.Support.Design.Widget;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 [assembly: ExportRenderer(typeof(ExtendedTabbedPage), typeof(ExtendedTabbedPageRenderer))]
 namespace SampleApp.MVVMLight.Droid.CustomRendrers
@@ -57,8 +58,44 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
             }
 
 
+            var tabCount = InitLayout();
+            for (var i = 0; i < tabCount; i++)
+            {
+                AddTabBadge(i);
+            }
+            Element.ChildAdded += OnTabAdded;
+            Element.ChildRemoved += OnTabRemoved;
+
         }
 
+        private int InitLayout()
+        {
+            switch (this.Element.OnThisPlatform().GetToolbarPlacement())
+            {
+                case ToolbarPlacement.Default:
+                case ToolbarPlacement.Top:
+                    _topTabLayout = ViewGroup.FindChildOfType<TabLayout>();
+                    if (_topTabLayout == null)
+                    {
+                        Console.WriteLine("Plugin.Badge: No TabLayout found. Badge not added.");
+                        return 0;
+                    }
+
+                    _topTabStrip = _topTabLayout.FindChildOfType<LinearLayout>();
+                    return _topTabLayout.TabCount;
+                case ToolbarPlacement.Bottom:
+                    _bottomTabStrip = ViewGroup.FindChildOfType<BottomNavigationView>()?.GetChildAt(0) as ViewGroup;
+                    if (_bottomTabStrip == null)
+                    {
+                        Console.WriteLine("Plugin.Badge: No bottom tab layout found. Badge not added.");
+                        return 0;
+                    }
+
+                    return _bottomTabStrip.ChildCount;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
         protected override void OnLayout(bool changed, int l, int t, int r, int b)
         {
             base.OnLayout(changed, l, t, r, b);
@@ -224,9 +261,35 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
             BadgeViews[page] = badgeView;
             badgeView.UpdateFromElement(page);
 
-            //page.PropertyChanged -= OnTabbedPagePropertyChanged;
-            //page.PropertyChanged += OnTabbedPagePropertyChanged;
+            page.PropertyChanged -= OnTabbedPagePropertyChanged;
+            page.PropertyChanged += OnTabbedPagePropertyChanged;
         }
 
+        protected virtual void OnTabbedPagePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (!(sender is Element element))
+                return;
+
+            if (BadgeViews.TryGetValue(element, out var badgeView))
+            {
+                badgeView.UpdateFromPropertyChangedEvent(element, e);
+            }
+        }
+
+        private void OnTabRemoved(object sender, ElementEventArgs e)
+        {
+            e.Element.PropertyChanged -= OnTabbedPagePropertyChanged;
+            BadgeViews.Remove(e.Element);
+        }
+
+        private async void OnTabAdded(object sender, ElementEventArgs e)
+        {
+            await Task.Delay(50);
+
+            if (!(e.Element is Page page))
+                return;
+
+            AddTabBadge(Element.Children.IndexOf(page));
+        }
     }
 }
