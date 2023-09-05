@@ -1,18 +1,18 @@
 ﻿using System;
-using Xamarin.Forms.Platform.Android;
-using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android.AppCompat;
-using Android.Content;
-using Android.Support.Design.Widget;
-using Android.Support.Design.Internal;
-using Android.Graphics;
-using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using Xamarin.Forms;
 using Android.Views;
 using Android.Widget;
-using Android.Graphics.Drawables;
+using Xamarin.Forms.Platform.Android;
+using Android.Content;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using SampleApp.MVVMLight.CustomControls;
 using SampleApp.MVVMLight.Droid.CustomRendrers;
-
+using Android.Graphics;
+using Android.Support.Design.Internal;
+using BottomNavigationItemView = Android.Support.Design.Internal.BottomNavigationItemView;
+using Android.Graphics.Drawables;
+using Android.Support.Design.Widget;
 
 [assembly: ExportRenderer(typeof(ExtendedTabbedPage), typeof(ExtendedTabbedPageRenderer))]
 namespace SampleApp.MVVMLight.Droid.CustomRendrers
@@ -24,6 +24,10 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
         Android.Views.IMenuItem lastItemSelected;
         private bool firstTime = true;
         int lastItemId = -1;
+        private object _bottomTabStrip;
+        private object _topTabLayout;
+        private object _topTabStrip;
+
         public ExtendedTabbedPageRenderer(Context context) : base(context)
         {
         }
@@ -173,6 +177,53 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
             {
                 System.Diagnostics.Debug.WriteLine($"Unable to set shift mode: {ex}");
             }
+        }
+
+
+        private void AddTabBadge(int tabIndex)
+        {
+            if (tabIndex == -1)
+            {
+                return;
+            }
+
+            var page = Element.GetChildPageWithBadge(tabIndex);
+
+            //var placement = Element.OnThisPlatform().GetToolbarPlacement();
+            //var targetView = placement == ToolbarPlacement.Bottom 
+            //    ? _bottomTabStrip?.GetChildAt(tabIndex) 
+            //    : _topTabLayout?.GetTabAt(tabIndex).CustomView 
+            //    ?? _topTabStrip?.GetChildAt(tabIndex);
+            //if (!(targetView is ViewGroup targetLayout))
+            //{
+            //    Console.WriteLine("Plugin.Badge: Badge target cannot be null. Badge not added.");
+            //    return;
+            //}
+
+            //var badgeView = targetLayout.FindChildOfType<BadgeView>();
+
+            //if (badgeView == null)
+            //{
+            //    var imageView = targetLayout.FindChildOfType<ImageView>();
+            //    if (placement == ToolbarPlacement.Bottom)
+            //    {
+            //        // create for entire tab layout
+            //        badgeView = BadgeView.ForTargetLayout(Context, imageView);
+            //    }
+            //    else
+            //    {
+            //        //create badge for tab image or text
+            //        badgeView = BadgeView.ForTarget(Context, imageView?.Drawable != null
+            //            ? (Android.Views.View)imageView
+            //            : targetLayout.FindChildOfType<TextView>());
+            //    }
+            //}
+
+            //BadgeViews[page] = badgeView;
+            //badgeView.UpdateFromElement(page);
+
+            //page.PropertyChanged -= OnTabbedPagePropertyChanged;
+            //page.PropertyChanged += OnTabbedPagePropertyChanged;
         }
 
     }
