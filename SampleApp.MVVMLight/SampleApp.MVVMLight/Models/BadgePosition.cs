@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SampleApp.MVVMLight.Models
+﻿namespace SampleApp.MVVMLight.Models
 {
     public enum BadgePosition
     {
