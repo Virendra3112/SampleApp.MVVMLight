@@ -11,9 +11,12 @@
              BarTextColor="Gray" 
              xmlns:controls="clr-namespace:SampleApp.MVVMLight.CustomControls">
     <controls:ExtendedTabbedPage.Children>
-        <ContentPage x:Name="HomeTab" Title="Home" controls:Badge.Text="0" IconImageSource="icon.png" BackgroundColor="White"/>
+        <ContentPage x:Name="HomeTab" Title="Home" controls:Badge.Text="0" IconImageSource="icon.png" BackgroundColor="White"
+                     controls:TabBadge.BadgeText="0" controls:TabBadge.BadgeColor="Red"
+                     controls:TabBadge.BadgeTextColor="White" controls:TabBadge.BadgePosition="PositionRightCenter"
+                     />
         <ContentPage x:Name="SecondTab" Title="Second" IconImageSource="icon.png" BackgroundColor="White"/>
         <ContentPage x:Name="ThirdTab" Title="Third" IconImageSource="icon.png" BackgroundColor="White"/>
-        
+
     </controls:ExtendedTabbedPage.Children>
 </controls:ExtendedTabbedPage>
