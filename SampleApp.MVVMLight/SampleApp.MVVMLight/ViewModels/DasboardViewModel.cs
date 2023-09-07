@@ -25,6 +25,7 @@ namespace SampleApp.MVVMLight.ViewModels
             MenuItemCommand = new Command(MenuSelected);
 
             CategoryList = new ObservableCollection<MenuModel>();
+            CategoryList.Add(new MenuModel { PageName = "tab View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "Notification View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "Stepbar View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "FormValidatiion", Icon = "icon.png" });
@@ -118,6 +119,10 @@ namespace SampleApp.MVVMLight.ViewModels
 
                         case "ConnectToWiFi":
                             NavigationService.NavigateTo(PageKeys.ConnectToWiFiPageURI);
+                            break;
+
+                        case "tab View":
+                            NavigationService.NavigateTo(PageKeys.CustomTabPageURI);
                             break;
 
 
