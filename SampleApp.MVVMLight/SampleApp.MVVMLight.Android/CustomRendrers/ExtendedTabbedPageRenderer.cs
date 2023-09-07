@@ -26,6 +26,7 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
         Android.Views.IMenuItem lastItemSelected;
         private bool firstTime = true;
         int lastItemId = -1;
+
         private TabLayout _topTabLayout;
         private LinearLayout _topTabStrip;
         private ViewGroup _bottomTabStrip;
@@ -49,14 +50,13 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
                 SetShiftMode(bottomNavigationView, false, false);
 
                 //Call to change the font
-                //ChangeFont();
+                ChangeFont();
             }
 
             if (e.OldElement != null)
             {
                 bottomNavigationView.NavigationItemSelected -= BottomNavigationView_NavigationItemSelected;
             }
-
 
             var tabCount = InitLayout();
             for (var i = 0; i < tabCount; i++)
@@ -68,6 +68,31 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 
         }
 
+        //Change Tab font
+        void ChangeFont()
+        {
+            var fontFace = Typeface.CreateFromAsset(Context.Assets, "gilsansultrabold.ttf");
+            var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
+
+            for (int i = 0; i < bottomNavMenuView.ChildCount; i++)
+            {
+                var item = bottomNavMenuView.GetChildAt(i) as BottomNavigationItemView;
+                var itemTitle = item.GetChildAt(1);
+
+                var smallTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(0));
+                var largeTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(1));
+
+                lastItemId = bottomNavMenuView.SelectedItemId;
+
+                smallTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
+                largeTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
+
+                //Set text color
+                var textColor = (item.Id == bottomNavMenuView.SelectedItemId) ? tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid() : tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
+                smallTextView.SetTextColor(textColor);
+                largeTextView.SetTextColor(textColor);
+            }
+        }
         private int InitLayout()
         {
             switch (this.Element.OnThisPlatform().GetToolbarPlacement())
@@ -133,7 +158,7 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 
             }
 
-            if ($"{e.Item}" != "App")
+            if ($"{e.Item}" != "Home")
             {
                 e.Item.Icon.SetColorFilter(selectedColor, PorterDuff.Mode.SrcIn);
                 lastItemSelected = e.Item;
