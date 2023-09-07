@@ -18,5 +18,6 @@ namespace SampleApp.MVVMLight.Helpers
         public const string VideoView2URI = nameof(VideoPlayerView2);
         public const string PaytmPaymentViewURI = nameof(PaytmDemoView);
         public const string ConnectToWiFiPageURI = nameof(ConnectToWiFiPage);
+        public const string CustomTabPageURI = nameof(CustomTabbedPageSampleView);
     }
 }
