@@ -36,18 +36,18 @@ namespace SampleApp.MVVMLight.Droid
             base.OnCreate(savedInstanceState);
 
             // Remove this method to stop OneSignal Debugging  
-            OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
+            //OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
 
-            OneSignal.Current.StartInit("YOUR_ONESIGNAL_APP_ID") //todo add app id here
-             .InFocusDisplaying(OSInFocusDisplayOption.Notification)
-             .EndInit();
+            //OneSignal.Current.StartInit("YOUR_ONESIGNAL_APP_ID") //todo add app id here
+            // .InFocusDisplaying(OSInFocusDisplayOption.Notification)
+            // .EndInit();
 
-            string playerId = "";
+            //string playerId = "";
 
-            OneSignal.Current.IdsAvailable(new Com.OneSignal.Abstractions.IdsAvailableCallback((playerID, pushToken) =>
-            {
-                playerId = playerID;
-            }));
+            //OneSignal.Current.IdsAvailable(new Com.OneSignal.Abstractions.IdsAvailableCallback((playerID, pushToken) =>
+            //{
+            //    playerId = playerID;
+            //}));
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
