@@ -69,30 +69,30 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
         }
 
         //Change Tab font
-        void ChangeFont()
-        {
-            var fontFace = Typeface.CreateFromAsset(Context.Assets, "gilsansultrabold.ttf");
-            var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
+        //void ChangeFont()
+        //{
+        //    var fontFace = Typeface.CreateFromAsset(Context.Assets, "gilsansultrabold.ttf");
+        //    var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
 
-            for (int i = 0; i < bottomNavMenuView.ChildCount; i++)
-            {
-                var item = bottomNavMenuView.GetChildAt(i) as BottomNavigationItemView;
-                var itemTitle = item.GetChildAt(1);
+        //    for (int i = 0; i < bottomNavMenuView.ChildCount; i++)
+        //    {
+        //        var item = bottomNavMenuView.GetChildAt(i) as BottomNavigationItemView;
+        //        var itemTitle = item.GetChildAt(1);
 
-                var smallTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(0));
-                var largeTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(1));
+        //        var smallTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(0));
+        //        var largeTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(1));
 
-                lastItemId = bottomNavMenuView.SelectedItemId;
+        //        lastItemId = bottomNavMenuView.SelectedItemId;
 
-                smallTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
-                largeTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
+        //        smallTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
+        //        largeTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
 
-                //Set text color
-                var textColor = (item.Id == bottomNavMenuView.SelectedItemId) ? tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid() : tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
-                smallTextView.SetTextColor(textColor);
-                largeTextView.SetTextColor(textColor);
-            }
-        }
+        //        //Set text color
+        //        var textColor = (item.Id == bottomNavMenuView.SelectedItemId) ? tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid() : tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
+        //        smallTextView.SetTextColor(textColor);
+        //        largeTextView.SetTextColor(textColor);
+        //    }
+        //}
         private int InitLayout()
         {
             switch (this.Element.OnThisPlatform().GetToolbarPlacement())
