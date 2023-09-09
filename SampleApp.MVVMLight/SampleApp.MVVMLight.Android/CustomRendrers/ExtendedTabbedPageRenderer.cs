@@ -44,7 +44,7 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
             {
                 tabbedPage = e.NewElement as ExtendedTabbedPage;
                 bottomNavigationView = (GetChildAt(0) as Android.Widget.RelativeLayout).GetChildAt(1) as BottomNavigationView;
-                bottomNavigationView.NavigationItemSelected += BottomNavigationView_NavigationItemSelected;
+                //bottomNavigationView.NavigationItemSelected += BottomNavigationView_NavigationItemSelected;
 
                 //Call to remove animation
                 SetShiftMode(bottomNavigationView, false, false);
