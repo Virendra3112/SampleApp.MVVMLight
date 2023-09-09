@@ -12,8 +12,8 @@
              xmlns:controls="clr-namespace:SampleApp.MVVMLight.CustomControls">
     <controls:ExtendedTabbedPage.Children>
         <ContentPage x:Name="HomeTab" Title="Home" controls:Badge.Text="0" IconImageSource="icon.png" BackgroundColor="White"
-                     controls:TabBadge.BadgeText="0" controls:TabBadge.BadgeColor="Red"
-                     controls:TabBadge.BadgeTextColor="White" controls:TabBadge.BadgePosition="PositionRightCenter"
+                     controls:TabBadge.BadgeText="10" controls:TabBadge.BadgeColor="Red" controls:TabBadge.BadgeMargin="5,0,0,0"
+                     controls:TabBadge.BadgeTextColor="White" controls:TabBadge.BadgePosition="PositionTopRight"
                      />
         <ContentPage x:Name="SecondTab" Title="Second" IconImageSource="icon.png" BackgroundColor="White"/>
         <ContentPage x:Name="ThirdTab" Title="Third" IconImageSource="icon.png" BackgroundColor="White"/>
