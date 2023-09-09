@@ -50,12 +50,12 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
                 SetShiftMode(bottomNavigationView, false, false);
 
                 //Call to change the font
-                ChangeFont();
+                //ChangeFont();
             }
 
             if (e.OldElement != null)
             {
-                bottomNavigationView.NavigationItemSelected -= BottomNavigationView_NavigationItemSelected;
+                //bottomNavigationView.NavigationItemSelected -= BottomNavigationView_NavigationItemSelected;
             }
 
             var tabCount = InitLayout();
@@ -146,38 +146,38 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 
         }
 
-        void BottomNavigationView_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
-        {
-            var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
-            var normalColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
-            var selectedColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid();
+        //void BottomNavigationView_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
+        //{
+        //    var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
+        //    var normalColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
+        //    var selectedColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid();
 
-            if (lastItemSelected != null)
-            {
-                lastItemSelected.Icon.SetColorFilter(normalColor, PorterDuff.Mode.SrcIn);
+        //    if (lastItemSelected != null)
+        //    {
+        //        lastItemSelected.Icon.SetColorFilter(normalColor, PorterDuff.Mode.SrcIn);
 
-            }
+        //    }
 
-            if ($"{e.Item}" != "Home")
-            {
-                e.Item.Icon.SetColorFilter(selectedColor, PorterDuff.Mode.SrcIn);
-                lastItemSelected = e.Item;
-            }
+        //    if ($"{e.Item}" != "Home")
+        //    {
+        //        e.Item.Icon.SetColorFilter(selectedColor, PorterDuff.Mode.SrcIn);
+        //        lastItemSelected = e.Item;
+        //    }
 
-            if (lastItemId != -1)
-            {
-                SetTabItemTextColor(bottomNavMenuView.GetChildAt(lastItemId) as BottomNavigationItemView, normalColor);
-            }
+        //    if (lastItemId != -1)
+        //    {
+        //        SetTabItemTextColor(bottomNavMenuView.GetChildAt(lastItemId) as BottomNavigationItemView, normalColor);
+        //    }
 
-            SetTabItemTextColor(bottomNavMenuView.GetChildAt(e.Item.ItemId) as BottomNavigationItemView, selectedColor);
+        //    SetTabItemTextColor(bottomNavMenuView.GetChildAt(e.Item.ItemId) as BottomNavigationItemView, selectedColor);
 
 
-            SetupBottomNavigationView(e.Item);
-            this.OnNavigationItemSelected(e.Item);
+        //    SetupBottomNavigationView(e.Item);
+        //    this.OnNavigationItemSelected(e.Item);
 
-            lastItemId = e.Item.ItemId;
+        //    lastItemId = e.Item.ItemId;
 
-        }
+        //}
 
 
         void SetTabItemTextColor(BottomNavigationItemView bottomNavigationItemView, Android.Graphics.Color textColor)
