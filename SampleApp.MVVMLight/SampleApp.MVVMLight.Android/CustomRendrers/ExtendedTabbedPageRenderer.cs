@@ -48,9 +48,6 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 
                 //Call to remove animation
                 SetShiftMode(bottomNavigationView, false, false);
-
-                //Call to change the font
-                //ChangeFont();
             }
 
             if (e.OldElement != null)
@@ -67,32 +64,6 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
             Element.ChildRemoved += OnTabRemoved;
 
         }
-
-        //Change Tab font
-        //void ChangeFont()
-        //{
-        //    var fontFace = Typeface.CreateFromAsset(Context.Assets, "gilsansultrabold.ttf");
-        //    var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
-
-        //    for (int i = 0; i < bottomNavMenuView.ChildCount; i++)
-        //    {
-        //        var item = bottomNavMenuView.GetChildAt(i) as BottomNavigationItemView;
-        //        var itemTitle = item.GetChildAt(1);
-
-        //        var smallTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(0));
-        //        var largeTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(1));
-
-        //        lastItemId = bottomNavMenuView.SelectedItemId;
-
-        //        smallTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
-        //        largeTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
-
-        //        //Set text color
-        //        var textColor = (item.Id == bottomNavMenuView.SelectedItemId) ? tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid() : tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
-        //        smallTextView.SetTextColor(textColor);
-        //        largeTextView.SetTextColor(textColor);
-        //    }
-        //}
         private int InitLayout()
         {
             switch (this.Element.OnThisPlatform().GetToolbarPlacement())
@@ -102,7 +73,6 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
                     _topTabLayout = ViewGroup.FindChildOfType<TabLayout>();
                     if (_topTabLayout == null)
                     {
-                        Console.WriteLine("Plugin.Badge: No TabLayout found. Badge not added.");
                         return 0;
                     }
 
@@ -112,7 +82,6 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
                     _bottomTabStrip = ViewGroup.FindChildOfType<BottomNavigationView>()?.GetChildAt(0) as ViewGroup;
                     if (_bottomTabStrip == null)
                     {
-                        Console.WriteLine("Plugin.Badge: No bottom tab layout found. Badge not added.");
                         return 0;
                     }
 
@@ -219,7 +188,6 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
                 var menuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
                 if (menuView == null)
                 {
-                    System.Diagnostics.Debug.WriteLine("Unable to find BottomNavigationMenuView");
                     return;
                 }
                 var shiftMode = menuView.Class.GetDeclaredField("mShiftingMode");
@@ -232,7 +200,8 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
                     var item = menuView.GetChildAt(i) as BottomNavigationItemView;
                     if (item == null)
                         continue;
-                    //item.SetShiftingMode(enableItemShiftMode);
+
+                    item.SetShifting(enableItemShiftMode);
                     item.SetChecked(item.ItemData.IsChecked);
                 }
                 menuView.UpdateMenuView();
