@@ -1,20 +1,20 @@
-﻿using System;
-using Xamarin.Forms.Platform.Android.AppCompat;
-using Xamarin.Forms;
+﻿using Android.Content;
+using Android.Graphics;
+using Android.Graphics.Drawables;
+using Android.Support.Design.Internal;
+using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
-using Xamarin.Forms.Platform.Android;
-using Android.Content;
-using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using SampleApp.MVVMLight.CustomControls;
 using SampleApp.MVVMLight.Droid.CustomRendrers;
-using Android.Graphics;
-using Android.Support.Design.Internal;
-using BottomNavigationItemView = Android.Support.Design.Internal.BottomNavigationItemView;
-using Android.Graphics.Drawables;
-using Android.Support.Design.Widget;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
+using Xamarin.Forms.Platform.Android.AppCompat;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using BottomNavigationItemView = Android.Support.Design.Internal.BottomNavigationItemView;
 
 [assembly: ExportRenderer(typeof(ExtendedTabbedPage), typeof(ExtendedTabbedPageRenderer))]
 namespace SampleApp.MVVMLight.Droid.CustomRendrers
@@ -46,6 +46,14 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
                 bottomNavigationView = (GetChildAt(0) as Android.Widget.RelativeLayout).GetChildAt(1) as BottomNavigationView;
                 //bottomNavigationView.NavigationItemSelected += BottomNavigationView_NavigationItemSelected;
 
+                try
+                {
+                    //bottomNavigationView.NavigationItemSelected += BottomNavigationView_NavigationItemSelected;
+                }
+                catch (Exception ex)
+                {
+
+                }
                 //Call to remove animation
                 SetShiftMode(bottomNavigationView, false, false);
             }
@@ -115,38 +123,44 @@ namespace SampleApp.MVVMLight.Droid.CustomRendrers
 
         }
 
-        //void BottomNavigationView_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
-        //{
-        //    var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
-        //    var normalColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
-        //    var selectedColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid();
+        void BottomNavigationView_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
+        {
+            try
+            {
+                var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
+                var normalColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
+                var selectedColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid();
 
-        //    if (lastItemSelected != null)
-        //    {
-        //        lastItemSelected.Icon.SetColorFilter(normalColor, PorterDuff.Mode.SrcIn);
+                if (lastItemSelected != null)
+                {
+                    lastItemSelected.Icon.SetColorFilter(normalColor, PorterDuff.Mode.SrcIn);
 
-        //    }
+                }
 
-        //    if ($"{e.Item}" != "Home")
-        //    {
-        //        e.Item.Icon.SetColorFilter(selectedColor, PorterDuff.Mode.SrcIn);
-        //        lastItemSelected = e.Item;
-        //    }
+                if ($"{e.Item}" != "Home")
+                {
+                    e.Item.Icon.SetColorFilter(selectedColor, PorterDuff.Mode.SrcIn);
+                    lastItemSelected = e.Item;
+                }
 
-        //    if (lastItemId != -1)
-        //    {
-        //        SetTabItemTextColor(bottomNavMenuView.GetChildAt(lastItemId) as BottomNavigationItemView, normalColor);
-        //    }
+                if (lastItemId != -1)
+                {
+                    SetTabItemTextColor(bottomNavMenuView.GetChildAt(lastItemId) as BottomNavigationItemView, normalColor);
+                }
 
-        //    SetTabItemTextColor(bottomNavMenuView.GetChildAt(e.Item.ItemId) as BottomNavigationItemView, selectedColor);
+                SetTabItemTextColor(bottomNavMenuView.GetChildAt(e.Item.ItemId) as BottomNavigationItemView, selectedColor);
 
 
-        //    SetupBottomNavigationView(e.Item);
-        //    this.OnNavigationItemSelected(e.Item);
+                SetupBottomNavigationView(e.Item);
+                this.OnNavigationItemSelected(e.Item);
 
-        //    lastItemId = e.Item.ItemId;
+                lastItemId = e.Item.ItemId;
+            }
+            catch (Exception ex)
+            {
+            }
 
-        //}
+        }
 
 
         void SetTabItemTextColor(BottomNavigationItemView bottomNavigationItemView, Android.Graphics.Color textColor)
