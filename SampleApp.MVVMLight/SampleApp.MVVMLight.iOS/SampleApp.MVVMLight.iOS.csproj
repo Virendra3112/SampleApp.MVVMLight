@@ -63,6 +63,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\BadgeShellItemRenderer.cs" />
+    <Compile Include="CustomRendrers\BadgeShellRenderer.cs" />
     <Compile Include="CustomRendrers\ExtendedEntryRenderer.cs" />
     <Compile Include="CustomRendrers\ExtendedTabbedPageRenderer.cs" />
     <Compile Include="Helpers\IosBootstrapper.cs" />
