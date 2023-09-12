@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using SampleApp.MVVMLight.iOS.CustomRendrers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
+[assembly: ExportRenderer(typeof(Shell), typeof(BadgeShellRenderer))]
 namespace SampleApp.MVVMLight.iOS.CustomRendrers
 {
     public class BadgeShellRenderer : ShellRenderer
