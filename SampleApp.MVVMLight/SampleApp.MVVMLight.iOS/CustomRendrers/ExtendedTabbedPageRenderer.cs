@@ -18,6 +18,10 @@ namespace SampleApp.MVVMLight.iOS.CustomRendrers
     {
         UITabBarController tabbedController;
 
+        private readonly Dictionary<Guid, int> _tabRealIndexByItemId =
+           new Dictionary<Guid, int>();
+
+
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             base.OnElementChanged(e);
@@ -133,6 +137,70 @@ namespace SampleApp.MVVMLight.iOS.CustomRendrers
             return img;
 
         }
+
+
+        //private void InitBadges()
+        //{
+        //    _tabRealIndexByItemId.Clear();
+        //    if (ShellItem?.Items == null)
+        //        return;
+        //    for (int index = 0, filteredIndex = 0; index < ShellItem.Items.Count; index++)
+        //    {
+        //        var item = ShellItem.Items.ElementAtOrDefault(index);
+        //        if (item == null || !item.IsVisible)
+        //            continue;
+        //        _tabRealIndexByItemId[item.Id] = filteredIndex;
+        //        UpdateBadge(item, filteredIndex);
+        //        filteredIndex++;
+        //    }
+        //}
+
+        private void UpdateBadge(ShellSection item, int index)
+        {
+            if (index < 0)
+                return;
+
+            var text = Badge.GetText(item);
+            var textColor = Badge.GetTextColor(item);
+            var bg = Badge.GetBackgroundColor(item);
+            ApplyBadge(index, text, bg, textColor);
+        }
+
+        private void ApplyBadge(int index, string text, Color bg, Color textColor)
+        {
+            if (TabBar.Items.Any())
+            {
+                if (TabBar.Items.ElementAtOrDefault(index) is UITabBarItem currentTabBarItem)
+                {
+                    int.TryParse(text, out var badgeValue);
+
+                    if (string.IsNullOrEmpty(text))
+                    {
+                        currentTabBarItem.BadgeValue = default;
+                        textColor = Color.Transparent;
+                        bg = Color.Transparent;
+                    }
+                    else if (badgeValue == 0)
+                    {
+                        currentTabBarItem.BadgeValue = "●";
+                        textColor = bg;
+                        bg = Color.Transparent;
+                    }
+                    else
+                    {
+                        currentTabBarItem.BadgeValue = text;
+                    }
+
+                    currentTabBarItem.BadgeColor = bg.ToUIColor();
+                    currentTabBarItem.SetBadgeTextAttributes(
+                        new UIStringAttributes
+                        {
+                            ForegroundColor = textColor.ToUIColor()
+                        }, UIControlState.Normal);
+                }
+            }
+        }
+
     }
 
 }

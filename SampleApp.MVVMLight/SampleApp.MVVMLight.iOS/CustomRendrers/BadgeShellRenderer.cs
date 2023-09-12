@@ -1,10 +1,4 @@
-﻿using Foundation;
-using SampleApp.MVVMLight.iOS.CustomRendrers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UIKit;
+﻿using SampleApp.MVVMLight.iOS.CustomRendrers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
