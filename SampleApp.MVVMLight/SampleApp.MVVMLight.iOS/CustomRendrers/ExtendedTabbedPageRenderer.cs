@@ -15,10 +15,10 @@ namespace SampleApp.MVVMLight.iOS.CustomRendrers
 {
     public class ExtendedTabbedPageRenderer : TabbedRenderer
     {
-        UITabBarController tabbedController;
+        //UITabBarController tabbedController;
 
-        private readonly Dictionary<Guid, int> _tabRealIndexByItemId =
-           new Dictionary<Guid, int>();
+        //private readonly Dictionary<Guid, int> _tabRealIndexByItemId =
+        //   new Dictionary<Guid, int>();
 
 
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
@@ -291,20 +291,20 @@ namespace SampleApp.MVVMLight.iOS.CustomRendrers
         //    }
 
         //}
-        UIImage GetImageWithColorPosition(UIColor color, CGSize size, CGSize lineSize)
-        {
-            var rect = new CGRect(0, 0, size.Width, size.Height);
-            var rectLine = new CGRect(0, size.Height - lineSize.Height, lineSize.Width, lineSize.Height);
-            UIGraphics.BeginImageContextWithOptions(size, false, 0);
-            UIColor.Clear.SetFill();
-            UIGraphics.RectFill(rect);
-            color.SetFill();
-            UIGraphics.RectFill(rectLine);
-            var img = UIGraphics.GetImageFromCurrentImageContext();
-            UIGraphics.EndImageContext();
-            return img;
+        //UIImage GetImageWithColorPosition(UIColor color, CGSize size, CGSize lineSize)
+        //{
+        //    var rect = new CGRect(0, 0, size.Width, size.Height);
+        //    var rectLine = new CGRect(0, size.Height - lineSize.Height, lineSize.Width, lineSize.Height);
+        //    UIGraphics.BeginImageContextWithOptions(size, false, 0);
+        //    UIColor.Clear.SetFill();
+        //    UIGraphics.RectFill(rect);
+        //    color.SetFill();
+        //    UIGraphics.RectFill(rectLine);
+        //    var img = UIGraphics.GetImageFromCurrentImageContext();
+        //    UIGraphics.EndImageContext();
+        //    return img;
 
-        }
+        //}
 
 
         //private void InitBadges()
