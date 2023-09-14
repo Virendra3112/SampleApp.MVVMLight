@@ -41,6 +41,7 @@ namespace SampleApp.MVVMLight.Helpers
                 navigationService.Configure(PageKeys.PaytmPaymentViewURI, typeof(PaytmDemoView));
                 navigationService.Configure(PageKeys.ConnectToWiFiPageURI, typeof(ConnectToWiFiPage));
                 navigationService.Configure(PageKeys.CustomTabPageURI, typeof(CustomTabbedPageSampleView));
+                navigationService.Configure(PageKeys.CustomTabPageTwoURI, typeof(CustomTabbedPageSampleTwoView));
 
                 return navigationService;
             }
