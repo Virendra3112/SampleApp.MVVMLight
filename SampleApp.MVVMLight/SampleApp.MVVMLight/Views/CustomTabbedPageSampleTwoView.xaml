@@ -1,12 +1,191 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="SampleApp.MVVMLight.Views.CustomTabbedPageSampleTwoView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--<ControlTemplate
+                x:Key="TabItemTemplate">
+                <Grid
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Margin="6"
+                        Source="{TemplateBinding CurrentIcon}" />
+                    <Label
+                        Grid.Row="1"
+                        HorizontalOptions="Center"
+                        FontSize="{TemplateBinding FontSize}"
+                        Text="Test"
+                        TextColor="{TemplateBinding CurrentTextColor}" />
+                </Grid>
+            </ControlTemplate>-->
+
+            <!--<ControlTemplate
+                x:Key="FabTabItemTemplate">
+                <Grid>
+                    <ImageButton
+                        InputTransparent="True"
+                        Source="{TemplateBinding CurrentIcon}"
+                        Padding="10"
+                        HorizontalOptions="Center"
+                        BackgroundColor="#FF0000"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        Margin="6">
+                        <ImageButton.CornerRadius>
+                            <OnPlatform x:TypeArguments="x:Int32">
+                                <On Platform="iOS" Value="30"/>
+                                <On Platform="Android" Value="60"/>
+                                <On Platform="UWP" Value="36"/>
+                            </OnPlatform>
+                        </ImageButton.CornerRadius>
+                        <ImageButton.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="Android, iOS, UWP">True</On>
+                                <On Platform="macOS">False</On>
+                            </OnPlatform>
+                        </ImageButton.IsVisible>
+                    </ImageButton>
+                    <BoxView
+                        InputTransparent="True"
+                        HorizontalOptions="Center"
+                        CornerRadius="30"
+                        BackgroundColor="#FF0000"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        Margin="6">
+                        <BoxView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="Android, iOS, UWP">False</On>
+                                <On Platform="macOS">True</On>
+                            </OnPlatform>
+                        </BoxView.IsVisible>
+                    </BoxView>
+                </Grid>
+            </ControlTemplate>-->
+
+            <ControlTemplate
+            x:Key="TabItemTemplate">
+                <Grid ColumnSpacing="0" Padding="0" Margin="0"
+                RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image
+                    Grid.Row="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Aspect="AspectFit"
+                    Margin="0" BackgroundColor="Green"
+                    Source="{TemplateBinding CurrentIcon}" />
+                    <Label
+                    Grid.Row="1"
+                    HorizontalOptions="Center"
+                    FontSize="{TemplateBinding FontSize}"
+                    Text="Test"
+                    TextColor="{TemplateBinding CurrentTextColor}" />
+
+                    <xct:BadgeView
+                    Grid.Row="0" Grid.Column="1"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Text="1"/>
+                </Grid>
+                
+                
+                
+            </ControlTemplate>
+
+            <Style
+                x:Key="TabItemStyle"
+                TargetType="xct:TabViewItem">
+                <Setter
+                    Property="FontSize"
+                    Value="12" />
+                <Setter
+                    Property="TextColor"
+                    Value="#979797" />
+                <Setter
+                    Property="TextColorSelected"
+                    Value="#FF0000" />
+            </Style>
+
+            <Style
+                x:Key="CustomTabStyle"
+                TargetType="xct:TabView">
+                <Setter
+                    Property="IsTabTransitionEnabled"
+                    Value="True" />
+                <Setter
+                    Property="TabStripHeight"
+                    Value="48" />
+                <Setter
+                    Property="TabContentBackgroundColor"
+                    Value="#484848" />
+                <Setter
+                    Property="TabStripPlacement"
+                    Value="Bottom" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid ColumnSpacing="0" Padding="0" Margin="0"
+                RowSpacing="0">
+            <xct:TabView 
+                Style="{StaticResource CustomTabStyle}">
+                <xct:TabView.TabStripBackgroundView>
+                    <BoxView
+                        Color="#484848"
+                        CornerRadius="0"/>
+                </xct:TabView.TabStripBackgroundView>
+                <xct:TabViewItem
+                    Text="Tab 1"  
+                    Icon="icon.png"
+                    ControlTemplate="{StaticResource TabItemTemplate}"
+                    BadgeText="0"
+                    BadgeBackgroundColor="Pink"
+                    BadgeBackgroundColorSelected="Red"
+                    BadgeTextColor="White"
+                    Style="{StaticResource TabItemStyle}">
+                    <Grid 
+                        BackgroundColor="LawnGreen">
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Text="TabContent1" />
+                    </Grid>
+                </xct:TabViewItem>
+                
+                <xct:TabViewItem
+                    Text="Tab 3"  
+                    Icon="icon.png"
+                    ControlTemplate="{StaticResource TabItemTemplate}"
+                    Style="{StaticResource TabItemStyle}">
+                    <Grid
+                        BackgroundColor="LightCoral">
+                        <Label    
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Text="TabContent3" />
+                    </Grid>
+                </xct:TabViewItem>
+            </xct:TabView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
