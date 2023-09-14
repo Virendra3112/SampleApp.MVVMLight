@@ -76,8 +76,9 @@
 
             <ControlTemplate
             x:Key="TabItemTemplate">
+                <AbsoluteLayout >
                 <Grid ColumnSpacing="0" Padding="0" Margin="0"
-                RowSpacing="0">
+                RowSpacing="0" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
@@ -89,7 +90,7 @@
                     WidthRequest="50"
                     HeightRequest="50"
                     Aspect="AspectFit"
-                    Margin="0" BackgroundColor="Green"
+                    Margin="0" BackgroundColor="Transparent"
                     Source="{TemplateBinding CurrentIcon}" />
                     <Label
                     Grid.Row="1"
@@ -98,15 +99,18 @@
                     Text="Test"
                     TextColor="{TemplateBinding CurrentTextColor}" />
 
-                    <xct:BadgeView
+                    <!--<xct:BadgeView
                     Grid.Row="0" Grid.Column="1"
                     BackgroundColor="Red"
                     TextColor="White"
-                    Text="1"/>
+                    Text="1"/>-->
                 </Grid>
-                
-                
-                
+                    <xct:BadgeView AbsoluteLayout.LayoutBounds="0.6,0.1,20,20" AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Text="  "/>
+
+                </AbsoluteLayout>
             </ControlTemplate>
 
             <Style
@@ -164,11 +168,11 @@
                     BadgeTextColor="White"
                     Style="{StaticResource TabItemStyle}">
                     <Grid 
-                        BackgroundColor="LawnGreen">
+                        BackgroundColor="Gray">
                         <Label
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
-                            Text="TabContent1" />
+                            Text="Tab One" />
                     </Grid>
                 </xct:TabViewItem>
                 
@@ -178,11 +182,11 @@
                     ControlTemplate="{StaticResource TabItemTemplate}"
                     Style="{StaticResource TabItemStyle}">
                     <Grid
-                        BackgroundColor="LightCoral">
+                        BackgroundColor="Orange">
                         <Label    
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
-                            Text="TabContent3" />
+                            Text="Tab two" />
                     </Grid>
                 </xct:TabViewItem>
             </xct:TabView>

@@ -16,5 +16,10 @@ namespace SampleApp.MVVMLight.Views
         {
             InitializeComponent();
         }
+
+        private void OnFabTabTapped(object sender, Xamarin.CommunityToolkit.UI.Views.TabTappedEventArgs e)
+        {
+
+        }
     }
 }
