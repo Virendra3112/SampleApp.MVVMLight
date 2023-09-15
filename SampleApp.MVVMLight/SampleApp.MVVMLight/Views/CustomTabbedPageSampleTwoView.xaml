@@ -5,75 +5,6 @@
              x:Class="SampleApp.MVVMLight.Views.CustomTabbedPageSampleTwoView">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <!--<ControlTemplate
-                x:Key="TabItemTemplate">
-                <Grid
-                    RowSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Image
-                        Grid.Row="0"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center"
-                        WidthRequest="24"
-                        HeightRequest="24"
-                        Margin="6"
-                        Source="{TemplateBinding CurrentIcon}" />
-                    <Label
-                        Grid.Row="1"
-                        HorizontalOptions="Center"
-                        FontSize="{TemplateBinding FontSize}"
-                        Text="Test"
-                        TextColor="{TemplateBinding CurrentTextColor}" />
-                </Grid>
-            </ControlTemplate>-->
-
-            <!--<ControlTemplate
-                x:Key="FabTabItemTemplate">
-                <Grid>
-                    <ImageButton
-                        InputTransparent="True"
-                        Source="{TemplateBinding CurrentIcon}"
-                        Padding="10"
-                        HorizontalOptions="Center"
-                        BackgroundColor="#FF0000"
-                        HeightRequest="60"
-                        WidthRequest="60"
-                        Margin="6">
-                        <ImageButton.CornerRadius>
-                            <OnPlatform x:TypeArguments="x:Int32">
-                                <On Platform="iOS" Value="30"/>
-                                <On Platform="Android" Value="60"/>
-                                <On Platform="UWP" Value="36"/>
-                            </OnPlatform>
-                        </ImageButton.CornerRadius>
-                        <ImageButton.IsVisible>
-                            <OnPlatform x:TypeArguments="x:Boolean">
-                                <On Platform="Android, iOS, UWP">True</On>
-                                <On Platform="macOS">False</On>
-                            </OnPlatform>
-                        </ImageButton.IsVisible>
-                    </ImageButton>
-                    <BoxView
-                        InputTransparent="True"
-                        HorizontalOptions="Center"
-                        CornerRadius="30"
-                        BackgroundColor="#FF0000"
-                        HeightRequest="60"
-                        WidthRequest="60"
-                        Margin="6">
-                        <BoxView.IsVisible>
-                            <OnPlatform x:TypeArguments="x:Boolean">
-                                <On Platform="Android, iOS, UWP">False</On>
-                                <On Platform="macOS">True</On>
-                            </OnPlatform>
-                        </BoxView.IsVisible>
-                    </BoxView>
-                </Grid>
-            </ControlTemplate>-->
-
             <ControlTemplate
             x:Key="TabItemTemplate">
                 <AbsoluteLayout >
@@ -92,19 +23,14 @@
                     Aspect="AspectFit"
                     Margin="0" BackgroundColor="Transparent"
                     Source="{TemplateBinding CurrentIcon}" />
-                    <Label
+                        <Label
                     Grid.Row="1"
                     HorizontalOptions="Center"
                     FontSize="{TemplateBinding FontSize}"
                     Text="Test"
                     TextColor="{TemplateBinding CurrentTextColor}" />
 
-                    <!--<xct:BadgeView
-                    Grid.Row="0" Grid.Column="1"
-                    BackgroundColor="Red"
-                    TextColor="White"
-                    Text="1"/>-->
-                </Grid>
+                    </Grid>
                     <xct:BadgeView AbsoluteLayout.LayoutBounds="0.6,0.1,20,20" AbsoluteLayout.LayoutFlags="PositionProportional"
                     BackgroundColor="Red"
                     TextColor="White"
