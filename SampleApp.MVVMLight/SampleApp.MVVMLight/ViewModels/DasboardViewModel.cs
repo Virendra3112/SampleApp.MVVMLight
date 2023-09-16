@@ -27,6 +27,7 @@ namespace SampleApp.MVVMLight.ViewModels
             CategoryList = new ObservableCollection<MenuModel>();
             CategoryList.Add(new MenuModel { PageName = "tab View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "tab View2", Icon = "icon.png" });
+            CategoryList.Add(new MenuModel { PageName = "tab View3", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "Notification View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "Stepbar View", Icon = "icon.png" });
             CategoryList.Add(new MenuModel { PageName = "FormValidatiion", Icon = "icon.png" });
@@ -128,6 +129,10 @@ namespace SampleApp.MVVMLight.ViewModels
 
                         case "tab View2":
                             NavigationService.NavigateTo(PageKeys.CustomTabPageTwoURI);
+                            break; 
+                        
+                        case "tab View3":
+                            NavigationService.NavigateTo(PageKeys.CustomTabPageThreeURI);
                             break;
                     }
                 }
