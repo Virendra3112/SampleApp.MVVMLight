@@ -42,6 +42,7 @@ namespace SampleApp.MVVMLight.Helpers
                 navigationService.Configure(PageKeys.ConnectToWiFiPageURI, typeof(ConnectToWiFiPage));
                 navigationService.Configure(PageKeys.CustomTabPageURI, typeof(CustomTabbedPageSampleView));
                 navigationService.Configure(PageKeys.CustomTabPageTwoURI, typeof(CustomTabbedPageSampleTwoView));
+                navigationService.Configure(PageKeys.CustomTabPageThreeURI, typeof(CustomTabbedPageSampleThreeView));
 
                 return navigationService;
             }
